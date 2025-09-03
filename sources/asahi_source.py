@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+#coding:utf-8
+
+import requests
+import feedparser
+from bs4 import BeautifulSoup
+from configs.rss_config import asahi_rss_config
+
+class AsahiRSSFetcher:
+    def __init__(self, rss_url):
+        self.rss_url = rss_url
+        self.max_articles = 5
+        self.headers = {"User-Agent": "Mozilla/5.0"}
+        self.feed = None
+        self.articles = []
+
+    def fetch_rss(self):
+        """抓取并解析 RSS"""
+        resp = requests.get(self.rss_url, headers=self.headers)
+        self.feed = feedparser.parse(resp.content)
+
+        print("feed 标题:", self.feed.feed.get("title", "无"))
+        print("共抓到:", len(self.feed.entries), "条新闻")
+
+    def fetch_article_content(self, link):
+        """抓取单篇新闻正文"""
+        try:
+            page = requests.get(link, headers=self.headers)
+            soup = BeautifulSoup(page.content, "html.parser")
+
+            # 常见的正文容器
+            article_div = soup.find("div", class_="ArticleText")
+            if not article_div:
+                article_div = soup.find("div", class_="nfyQp")  # 备用
+
+            if article_div:
+                return "\n".join(p.get_text(strip=True) for p in article_div.find_all("p"))
+            return "(未找到正文)"
+        except Exception as e:
+            return f"(抓取正文失败: {e})"
+
+    def parse_articles(self):
+        """解析 RSS 里的文章"""
+        if not self.feed:
+            print("请先调用 fetch_rss()")
+            return
+
+        for entry in self.feed.entries[:self.max_articles]:
+            title = entry.get("title", "")
+            link = entry.get("link", "")
+            summary = entry.get("summary", entry.get("description", ""))
+
+            content = self.fetch_article_content(link)
+
+            article = {
+                "title": title,
+                "link": link,
+                "summary": summary,
+                "content": content
+            }
+            self.articles.append(article)
+
+            # 打印
+            # print("="*60)
+            # print("标题:", title)
+            # print("摘要:", summary)
+            # print("正文:", content[:200], "..." if len(content) > 200 else "")
+
+    def run(self):
+        """完整流程"""
+        self.fetch_rss()
+        self.parse_articles()
+        return self.articles
+
+
+if __name__ == "__main__":
+    rss_url = asahi_rss_config["newsheadlines"]
+    fetcher = AsahiRSSFetcher(rss_url)
+    articles = fetcher.run()
+    print(articles)
