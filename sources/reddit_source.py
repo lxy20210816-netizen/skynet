@@ -4,59 +4,58 @@
 import requests
 import feedparser
 from datetime import datetime
-from configs.rss_config import youtube_rss_config
 
-class YouTubeRSSFetcher:
-    def __init__(self, rss_url):
-        self.rss_url = rss_url
-        self.max_videos = 50
+class RedditRSSFetcher:
+    def __init__(self, subreddit):
+        # Reddit RSS URL
+        self.rss_url = f"https://www.reddit.com/r/{subreddit}/.rss"
+        self.max_posts = 500
         self.headers = {"User-Agent": "Mozilla/5.0"}
         self.feed = None
-        self.videos = []
+        self.posts = []
 
     def fetch_rss(self):
         """抓取并解析 RSS"""
         resp = requests.get(self.rss_url, headers=self.headers, timeout=10)
         self.feed = feedparser.parse(resp.content)
 
-        print("频道标题:", self.feed.feed.get("title", "无"))
-        print("共抓到:", len(self.feed.entries), "条视频")
+        print("subreddit 标题:", self.feed.feed.get("title", "无"))
+        print("共抓到:", len(self.feed.entries), "条帖子")
 
-    def parse_videos(self):
-        """解析 RSS 里的视频"""
+    def parse_posts(self):
+        """解析 RSS 里的帖子"""
         if not self.feed:
             print("请先调用 fetch_rss()")
             return
 
-        for entry in self.feed.entries[:self.max_videos]:
+        for entry in self.feed.entries[:self.max_posts]:
             title = entry.get("title", "")
             link = entry.get("link", "")
-            summary = entry.get("summary", "")
-            published = entry.get("published", "")
+            summary = entry.get("summary", entry.get("description", ""))
 
-            # 格式化时间
+            # 发布时间
+            published = entry.get("published", "")
             if "published_parsed" in entry and entry.published_parsed:
                 published = datetime(*entry.published_parsed[:6]).strftime("%Y-%m-%d %H:%M:%S")
 
-            video = {
+            post = {
                 "title": title,
                 "link": link,
                 "summary": summary,
                 "published": published
             }
-            self.videos.append(video)
+            self.posts.append(post)
 
     def run(self):
         """完整流程"""
         self.fetch_rss()
-        self.parse_videos()
-        return self.videos
+        self.parse_posts()
+        return self.posts
 
 
 if __name__ == "__main__":
-    # 小Lin说 YouTube RSS 链接（需要替换成实际频道ID）
-    rss_url = youtube_rss_config["test"]
-    fetcher = YouTubeRSSFetcher(rss_url)
-    videos = fetcher.run()
-    for v in videos:
-        print(v)
+    subreddit = "hamiltonwatches"  # 目标子版块
+    fetcher = RedditRSSFetcher(subreddit)
+    posts = fetcher.run()
+    for p in posts:
+        print(p)
