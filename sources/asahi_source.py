@@ -9,7 +9,7 @@ from configs.rss_config import asahi_rss_config
 class AsahiRSSFetcher:
     def __init__(self, rss_url):
         self.rss_url = rss_url
-        self.max_articles = 5
+        self.max_articles = 50
         self.headers = {"User-Agent": "Mozilla/5.0"}
         self.feed = None
         self.articles = []

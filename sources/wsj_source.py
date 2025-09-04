@@ -6,8 +6,10 @@ import feedparser
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+from configs.rss_config import wsj_rss_config
 
-class WallstreetcnRSSFetcher:
+
+class WSJNewsRSSFetcher:
     def __init__(self, rss_url):
         self.rss_url = rss_url
         self.max_articles = 50
@@ -16,29 +18,27 @@ class WallstreetcnRSSFetcher:
         self.articles = []
 
     def fetch_rss(self):
-        """抓取并解析 RSS"""
-        resp = requests.get(self.rss_url, headers=self.headers, timeout=10)
+        """抓取并解析 WSJ RSS"""
+        resp = requests.get(self.rss_url, headers=self.headers)
         self.feed = feedparser.parse(resp.content)
 
         print("feed 标题:", self.feed.feed.get("title", "无"))
         print("共抓到:", len(self.feed.entries), "条新闻")
 
     def fetch_article_content(self, link):
-        """抓取单篇新闻正文"""
+        """抓取 WSJ 单篇新闻正文"""
         try:
-            page = requests.get(link, headers=self.headers, timeout=10)
+            page = requests.get(link, headers=self.headers)
             soup = BeautifulSoup(page.content, "html.parser")
 
-            # 华尔街见闻正文容器
-            article_div = soup.find("div", class_="article-container")
+            # WSJ 的正文区域（大部分文章需要订阅）
+            article_div = soup.find("div", class_="article-content")
             if not article_div:
-                article_div = soup.find("div", class_="content")  # 备用
+                article_div = soup.find("section", {"class": "wsj-article-wrap"})
 
             if article_div:
-                return "\n".join(
-                    p.get_text(strip=True) for p in article_div.find_all("p")
-                )
-            return "(未找到正文)"
+                return "\n".join(p.get_text(strip=True) for p in article_div.find_all("p"))
+            return "(未找到正文，可能需要订阅)"
         except Exception as e:
             return f"(抓取正文失败: {e})"
 
@@ -53,7 +53,7 @@ class WallstreetcnRSSFetcher:
             link = entry.get("link", "")
             summary = entry.get("summary", entry.get("description", ""))
 
-            # 发布时间
+            # 发布时间处理
             published = entry.get("published", "")
             if "published_parsed" in entry and entry.published_parsed:
                 published = datetime(*entry.published_parsed[:6]).strftime("%Y-%m-%d %H:%M:%S")
@@ -77,7 +77,7 @@ class WallstreetcnRSSFetcher:
 
 
 if __name__ == "__main__":
-    rss_url = "https://rss.injahow.cn/wallstreetcn/live/financing"
-    fetcher = WallstreetcnRSSFetcher(rss_url)
+    rss_url = wsj_rss_config["world"]
+    fetcher = WSJNewsRSSFetcher(rss_url)
     articles = fetcher.run()
     print(articles)

@@ -2,7 +2,7 @@
 #coding:utf-8
 
 from openai import OpenAI
-from configs.config import openai_api_key
+from configs.api_key_config import openai_api_key
 
 # 初始化客户端
 client = OpenAI(api_key=openai_api_key)
