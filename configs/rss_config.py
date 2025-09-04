@@ -29,5 +29,6 @@ chinadigitaltimes_rss_config = {
 }
 
 youtube_rss_config = {
-    "xiao_lin_shuo": "https://www.youtube.com/feeds/videos.xml?channel_id=UCilwQlk62k1z7aUEZPOB6yw" # 小Lin说,每次更新最近15个
+    "xiao_lin_shuo": "https://www.youtube.com/feeds/videos.xml?channel_id=UCilwQlk62k1z7aUEZPOB6yw", # 小Lin说,每次更新最近15个
+    "laogao": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnInmOkrWN4gof9KlhNmQ"
 }
