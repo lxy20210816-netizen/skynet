@@ -4,6 +4,7 @@
 import requests
 import feedparser
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 from configs.rss_config import nhk_rss_config
 
@@ -11,7 +12,7 @@ from configs.rss_config import nhk_rss_config
 class NHKNewsRSSFetcher:
     def __init__(self, rss_url):
         self.rss_url = rss_url
-        self.max_articles = 5
+        self.max_articles = 50
         self.headers = {"User-Agent": "Mozilla/5.0"}
         self.feed = None
         self.articles = []
@@ -52,12 +53,18 @@ class NHKNewsRSSFetcher:
             link = entry.get("link", "")
             summary = entry.get("summary", entry.get("description", ""))
 
+            # 发布时间处理
+            published = entry.get("published", "")
+            if "published_parsed" in entry and entry.published_parsed:
+                published = datetime(*entry.published_parsed[:6]).strftime("%Y-%m-%d %H:%M:%S")
+
             content = self.fetch_article_content(link)
 
             article = {
                 "title": title,
                 "link": link,
                 "summary": summary,
+                "published": published,
                 "content": content
             }
             self.articles.append(article)
@@ -73,5 +80,4 @@ if __name__ == "__main__":
     rss_url = nhk_rss_config["cat0"]
     fetcher = NHKNewsRSSFetcher(rss_url)
     articles = fetcher.run()
-    for i in articles:
-        print(i)
+    print(articles)

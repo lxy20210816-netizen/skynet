@@ -4,6 +4,7 @@
 import requests
 import feedparser
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 from configs.rss_config import housingjapan_rss_config
 
@@ -55,12 +56,19 @@ class HousingjapanRSSFetcher:
             title = entry.get("title", "")
             link = entry.get("link", "")
             summary = self.parse_summary(entry)
+
+            # 发布时间处理
+            published = entry.get("published", "")
+            if "published_parsed" in entry and entry.published_parsed:
+                published = datetime(*entry.published_parsed[:6]).strftime("%Y-%m-%d %H:%M:%S")
+
             content = self.fetch_article_content(link)
 
             article = {
                 "title": title,
                 "link": link,
                 "summary": summary,
+                "published": published,
                 "content": content
             }
             self.articles.append(article)
