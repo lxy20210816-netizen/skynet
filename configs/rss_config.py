@@ -23,3 +23,7 @@ wsj_rss_config = {
     #"markets": "https://feeds.a.dj.com/rss/WSJcomMarkets.xml",
     #"tech": "https://feeds.a.dj.com/rss/RSSWSJD.xml"
 }
+
+chinadigitaltimes_rss_config = {
+    "feed": "https://chinadigitaltimes.net/chinese/feed/"   # 最主要的，好像也就这一个，每次就7个
+}

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+#coding:utf-8
+
 from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, BigInteger
 from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime, timezone, timedelta
