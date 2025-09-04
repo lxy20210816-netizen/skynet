@@ -27,3 +27,7 @@ wsj_rss_config = {
 chinadigitaltimes_rss_config = {
     "feed": "https://chinadigitaltimes.net/chinese/feed/"   # 最主要的，好像也就这一个，每次就7个
 }
+
+youtube_rss_config = {
+    "xiao_lin_shuo": "https://www.youtube.com/feeds/videos.xml?channel_id=UCilwQlk62k1z7aUEZPOB6yw" # 小Lin说,每次更新最近15个
+}
