@@ -1,0 +1,258 @@
+{
+  "name": "summary and send",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n    title, \n    link, \n    content\nFROM nhk_rss_articles\nWHERE DATE(pubDate) >= CURDATE() - INTERVAL 1 DAY\n\nUNION ALL\n  \nSELECT \n    title, \n    link, \n    content\nFROM asahi_rss_articles\nWHERE DATE(pubDate) >= CURDATE() - INTERVAL 1 DAY;\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "c6b8214e-6679-4244-9a15-0ac43f4ebadc",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "mySql": {
+          "id": "Dult4olRq6YrvVGZ",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 获取所有输入（所有 MySQL 节点的数据都会进来）\nconst allInputs = $input.all();\n\n// 合并成一段文字\nconst newsText = allInputs.map((item, i) => {\n  return `${i + 1}. ${item.json.title}\\n${item.json.link}\\n内容: ${item.json.content}`;\n}).join(\"\\n\\n\");\n\nreturn [\n  {\n    json: { news: newsText }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        128,
+        0
+      ],
+      "id": "01a911d1-21a8-4de4-81f3-9bdc6820ca33",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=你是一个新闻总结agent。\n以下是今天的新闻，请你把它总结成一份新闻总结日报，总结不要太精简，详尽得当，用日语简单告诉大家今天发生了什么事，做一下点评，每句话后面，需要中文翻译，单词语法解释（我是日语初学者）。排版要好看，输出成html格式\n{{$json[\"news\"]}}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        352,
+        0
+      ],
+      "id": "999a1b20-33ae-4eb2-9bbe-3b6285fb32b5",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-reasoner",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        432,
+        224
+      ],
+      "id": "ba2a8869-ace4-43cd-b57f-3d8ff83c7679",
+      "name": "DeepSeek Chat Model",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "YFT1yVI4WN5PGn8t",
+          "name": "DeepSeek account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "lxy20210816@gmail.com",
+        "toEmail": "liyuanhua0512@outlook.com",
+        "subject": "所有rss pull run success！",
+        "html": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        704,
+        0
+      ],
+      "id": "85ca3e8b-cb73-4e7f-a5fe-e0fc5078531a",
+      "name": "Send email1",
+      "webhookId": "07ec96d8-f090-4a1a-b3c2-7988af044a75",
+      "credentials": {
+        "smtp": {
+          "id": "ElrljSxrAbkG5K5G",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=你是一个新闻总结agent。\n以下是今天的新闻，请你把它总结成一份新闻总结日报，简单告诉大家今天发生了什么事，做一下点评。每一篇文章都需要！如果遇到日语，需要在下面翻译中文，并解释其单词语法（我是日语学习者）排版要好看，输出成html格式\n{{$json[\"news\"]}}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -320,
+        336
+      ],
+      "id": "fe057034-2d30-4944-a261-a50e2efc660b",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-5",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        560
+      ],
+      "id": "f137cef9-f47b-49b0-abe3-a7059fccfca3",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "VDQj2zCqnK7ISmSf",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "message": "123",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.line",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        768
+      ],
+      "id": "95cb825b-68ec-4145-8846-e7215b64d283",
+      "name": "Send a notification",
+      "credentials": {
+        "lineNotifyOAuth2Api": {
+          "id": "WDSeKn4tgo71oGgS",
+          "name": "Line Notify account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "=0 10 * * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -320,
+        0
+      ],
+      "id": "23967a81-639c-4987-9a76-5c1afe7da9c6",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        []
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6b22793b-f1ba-4601-b44e-90359b0ce430",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d0dec0f395cc703d19ba8583866a194aa0347debf41a41b22555a368b3b920dd"
+  },
+  "id": "vOJOxSdh6ENSQMZg",
+  "tags": []
+}
