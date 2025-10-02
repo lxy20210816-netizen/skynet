@@ -87,7 +87,7 @@ CREATE TABLE `youtube_rss_articles` (
 
 # db
 
-finance
+finances
 
 # table
 
@@ -96,6 +96,8 @@ CREATE TABLE `stock_indices` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `nasdaq` decimal(12,3) NOT NULL,
+  `nasdaq_100` decimal(12,3) NOT NULL,
+  `nasdaq_100_pe` decimal(12,3) NOT NULL,
   `n225` decimal(12,3) NOT NULL,
   `vix` decimal(12,3) NOT NULL,
   `a` decimal(12,3) NOT NULL,
