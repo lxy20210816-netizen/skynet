@@ -94,3 +94,18 @@ logs/
 *.temp
 temp/
 tmp/
+
+# Data and output directories (keep structure, ignore contents)
+data/*
+!data/.gitkeep
+output/*.json
+output/*.csv
+output/*.log
+!output/.gitkeep
+
+# Google Sheets credentials
+credentials.json
+
+# Suumo data
+kinshicho*.json
+kinshicho*.csv
