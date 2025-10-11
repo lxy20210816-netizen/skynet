@@ -103,8 +103,10 @@ output/*.csv
 output/*.log
 !output/.gitkeep
 
-# Google Sheets credentials
-credentials.json
+# Config directory (keep structure, ignore sensitive files)
+config/*
+!config/.gitkeep
+!config/README.md
 
 # Suumo data
 kinshicho*.json
