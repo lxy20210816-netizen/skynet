@@ -16,8 +16,14 @@
 | 脚本 | 功能 | 数据源 | 输出 |
 |-----|------|--------|------|
 | `suumo_scraper.py` | Suumo房源信息 | Suumo.jp | JSON |
+
+### 📊 数据导入导出
+
+| 脚本 | 功能 | 输入/来源 | 输出 |
+|-----|------|----------|------|
 | `export_to_csv.py` | JSON转CSV | 本地JSON | CSV文件 |
 | `upload_to_gsheets.py` | 上传到Google Sheets | 本地JSON | Google Sheets |
+| `read_gsheets.py` | 从Google Sheets读取 | Google Sheets | JSON |
 
 ### 🔧 工具脚本
 
@@ -50,6 +56,16 @@ python3 suumo_scraper.py > ../output/suumo_$(date +%Y%m%d).json 2>&1
 python3 export_to_csv.py
 
 # 结果在 ../output/kinshicho_sale.csv
+```
+
+### 3. 读取Google Sheets
+
+```bash
+# 读取Google Sheets数据
+python3 read_gsheets.py "YOUR_SHEET_ID" -o ../output/gsheet_data.json
+
+# 或使用完整URL
+python3 read_gsheets.py "https://docs.google.com/spreadsheets/d/SHEET_ID/edit"
 ```
 
 ### 3. 数据库管理

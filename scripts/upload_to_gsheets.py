@@ -22,7 +22,7 @@ def extract_number(text):
     match = re.search(r'(\d+\.?\d*)', str(text))
     return float(match.group(1)) if match else 0
 
-def upload_to_google_sheets(json_file, credentials_file='credentials.json', sheet_name='锦糸町房源'):
+def upload_to_google_sheets(json_file, credentials_file='config/credentials.json', sheet_name='锦糸町房源'):
     """
     上传数据到Google Sheets
     
