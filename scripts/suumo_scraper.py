@@ -2,6 +2,7 @@
 """
 Suumo房地产信息抓取脚本
 使用Selenium抓取Suumo网站的房产信息
+支持直接上传到Google Sheets
 """
 
 from selenium import webdriver
@@ -15,7 +16,19 @@ import time
 import random
 import json
 import sys
+import re
+import argparse
 from datetime import datetime
+
+# Google Sheets相关导入
+try:
+    import gspread
+    from google.oauth2.service_account import Credentials
+    GSHEETS_AVAILABLE = True
+except ImportError:
+    GSHEETS_AVAILABLE = False
+    print("提示: 未安装gspread库，无法上传到Google Sheets", file=sys.stderr)
+    print("安装方法: pip install gspread google-auth", file=sys.stderr)
 
 def setup_driver():
     """配置并启动Chrome浏览器"""
@@ -48,12 +61,14 @@ def setup_driver():
         print(f"启动浏览器失败: {e}", file=sys.stderr)
         return None
 
-def scrape_suumo_sale(station="錦糸町", max_pages=3):
+def scrape_suumo_sale(station="錦糸町", area_code="13107", property_type="mansion", max_pages=3):
     """
-    抓取Suumo售房信息 - 锦糸町附近的买房信息
+    抓取Suumo售房信息 - 指定区域的买房信息
     
     参数:
-        station: 车站名称（如：錦糸町）
+        station: 车站名称（如：錦糸町、亀戸）
+        area_code: 区域代码（13107=墨田区, 13108=江东区）
+        property_type: 房屋类型（mansion=公寓, house=一户建）
         max_pages: 最大抓取页数
     """
     driver = None
@@ -64,16 +79,45 @@ def scrape_suumo_sale(station="錦糸町", max_pages=3):
         if not driver:
             return {"success": False, "error": "浏览器启动失败"}
         
-        # 锦糸町车站附近的售房信息URL - 墨田区
-        # ar=030: 関東
-        # bs=011: 中古マンション（二手公寓）
-        # ta=13: 東京都
-        # sc=13107: 墨田区
-        base_url = "https://suumo.jp/jj/bukken/ichiran/JJ012FC001/"
-        params = "?ar=030&bs=011&ta=13&sc=13107&kb=1&kt=9999999&tb=0&tt=9999999&hb=0&ht=9999999&ekTjCd=&ekTjNm=&tj=0&cnb=0&cn=9999999"
-        url = base_url + params
+        # 构建URL
+        # 一户建和公寓使用完全不同的URL结构
         
-        print(f"搜索条件: 墨田区（锦糸町所在区）- 二手公寓", file=sys.stderr)
+        # 区域代码到URL路径映射
+        area_code_to_path = {
+            "13107": "sumida",    # 墨田区
+            "13108": "koto",      # 江东区
+            "13119": "itabashi",  # 板桥区
+            "13121": "adachi",    # 足立区
+            "13112": "setagaya",  # 世田谷区
+        }
+        
+        area_name_map = {
+            "13107": "墨田区",
+            "13108": "江东区",
+            "13119": "板桥区",
+            "13121": "足立区",
+            "13112": "世田谷区",
+        }
+        
+        type_name_map = {
+            "mansion": "二手公寓",
+            "house": "二手一户建"
+        }
+        
+        area_path = area_code_to_path.get(area_code, "koto")
+        area_name = area_name_map.get(area_code, f"区域{area_code}")
+        type_name = type_name_map.get(property_type, "二手公寓")
+        
+        if property_type == "house":
+            # 一户建使用不同的URL路径
+            url = f"https://suumo.jp/chukoikkodate/tokyo/sc_{area_path}/"
+        else:
+            # 公寓使用原有的URL
+            base_url = "https://suumo.jp/jj/bukken/ichiran/JJ012FC001/"
+            params = f"?ar=030&bs=011&ta=13&sc={area_code}&kb=1&kt=9999999&tb=0&tt=9999999&hb=0&ht=9999999&ekTjCd=&ekTjNm=&tj=0&cnb=0&cn=9999999"
+            url = base_url + params
+        
+        print(f"搜索条件: {area_name}（{station}附近）- {type_name}", file=sys.stderr)
         
         print(f"正在访问Suumo网站: {url}", file=sys.stderr)
         driver.get(url)
@@ -91,20 +135,37 @@ def scrape_suumo_sale(station="錦糸町", max_pages=3):
                 time.sleep(random.uniform(3, 5))
                 
                 # 等待房产列表加载（增加等待时间）
-                # 买房页面使用不同的class名称
+                # 不同类型的房产使用不同的class名称
+                items = []
                 try:
-                    WebDriverWait(driver, 20).until(
+                    # 尝试1: 公寓列表页（property_unit）
+                    WebDriverWait(driver, 15).until(
                         EC.presence_of_element_located((By.CLASS_NAME, "property_unit"))
                     )
-                    print(f"页面加载完成（买房页面）", file=sys.stderr)
+                    print(f"页面加载完成（公寓列表页）", file=sys.stderr)
                     items = driver.find_elements(By.CLASS_NAME, "property_unit")
                 except:
-                    # 如果是租房页面
-                    WebDriverWait(driver, 20).until(
-                        EC.presence_of_element_located((By.CLASS_NAME, "cassetteitem"))
-                    )
-                    print(f"页面加载完成", file=sys.stderr)
-                    items = driver.find_elements(By.CLASS_NAME, "cassetteitem")
+                    try:
+                        # 尝试2: 一户建列表页（property_unit-content或其他）
+                        WebDriverWait(driver, 10).until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, ".property_unit-content, .dottable-fix, .l-itemlist_item"))
+                        )
+                        print(f"页面加载完成（一户建/其他页面）", file=sys.stderr)
+                        # 一户建可能使用不同的容器
+                        items = driver.find_elements(By.CSS_SELECTOR, ".property_unit-content") or \
+                                driver.find_elements(By.CLASS_NAME, "property_unit") or \
+                                driver.find_elements(By.CSS_SELECTOR, ".l-itemlist_item")
+                    except:
+                        try:
+                            # 尝试3: 租房页面
+                            WebDriverWait(driver, 10).until(
+                                EC.presence_of_element_located((By.CLASS_NAME, "cassetteitem"))
+                            )
+                            print(f"页面加载完成（租房页面）", file=sys.stderr)
+                            items = driver.find_elements(By.CLASS_NAME, "cassetteitem")
+                        except:
+                            print(f"⚠️  未找到房源列表，可能该地区没有此类房源", file=sys.stderr)
+                            items = []
                 
                 print(f"找到 {len(items)} 个房产信息", file=sys.stderr)
                 
@@ -153,15 +214,49 @@ def scrape_suumo_sale(station="錦糸町", max_pages=3):
                                 
                                 address = "N/A"
                                 access = "N/A"
+                                access_lines = []  # 收集所有可能的交通信息
                                 
                                 for line in lines:
                                     # 地址通常包含区名
                                     if '墨田区' in line or '区' in line:
-                                        if len(line) < 50:  # 地址不会太长
+                                        if len(line) < 50 and address == "N/A":  # 地址不会太长，取第一个
                                             address = line
-                                    # 交通信息通常包含"駅"或"分"
-                                    if '駅' in line and '歩' in line:
-                                        access = line
+                                    
+                                    # 交通信息 - 更宽松的匹配条件
+                                    # 1. 包含"駅"和距离信息（徒歩/分/バス等）
+                                    if '駅' in line and ('歩' in line or '徒' in line or '分' in line or 'バス' in line):
+                                        if len(line) < 100:  # 交通信息不会太长
+                                            access_lines.append(line)
+                                    # 2. 包含"駅"和"利用"或"沿線"
+                                    elif '駅' in line and ('利用' in line or '沿線' in line or '路線' in line):
+                                        if len(line) < 100:
+                                            access_lines.append(line)
+                                    # 3. 包含"アクセス"关键词
+                                    elif 'アクセス' in line or '交通' in line:
+                                        if len(line) < 100 and len(line) > 5:
+                                            access_lines.append(line)
+                                
+                                # 过滤并组合交通信息
+                                if access_lines:
+                                    # 过滤掉无用的占位符文本
+                                    filtered_access = []
+                                    for acc in access_lines[:3]:
+                                        # 跳过无用的标准文本
+                                        if acc in ['沿線・駅', '交通', 'アクセス']:
+                                            continue
+                                        # 跳过太短的
+                                        if len(acc) < 8:
+                                            continue
+                                        # 跳过标题（通常包含特殊符号和很长）
+                                        if '【' in acc or '◇' in acc or '○' in acc or '■' in acc or '～' in acc:
+                                            # 但是如果包含明确的駅和距离信息，保留
+                                            if ('駅' in acc and '徒' in acc) or ('駅' in acc and '分' in acc and '歩' in acc):
+                                                filtered_access.append(acc)
+                                            continue
+                                        filtered_access.append(acc)
+                                    
+                                    if filtered_access:
+                                        access = ' / '.join(filtered_access)
                                 
                                 property_data["address"] = address
                                 property_data["access"] = access
@@ -468,17 +563,389 @@ def scrape_suumo_sale(station="錦糸町", max_pages=3):
             driver.quit()
             print("浏览器已关闭", file=sys.stderr)
 
+def extract_number(text):
+    """从文本中提取数字"""
+    if not text or text == 'N/A':
+        return 0
+    match = re.search(r'(\d+\.?\d*)', str(text))
+    return float(match.group(1)) if match else 0
+
+def upload_to_google_sheets(properties, sheet_id, station_name="", property_type_name="公寓", worksheet_name='房地产池', credentials_file='config/credentials.json', append_mode=False):
+    """
+    上传房源数据到Google Sheets
+    
+    参数:
+        properties: 房源数据列表
+        sheet_id: Google Sheets的ID
+        station_name: 车站/地区名称（用于显示在地区列）
+        property_type_name: 房屋类型名称（公寓/一户建）
+        worksheet_name: 工作表名称（默认：房地产池）
+        credentials_file: Google服务账号凭证文件路径
+        append_mode: 是否为追加模式（True=追加，False=覆盖）
+    """
+    if not GSHEETS_AVAILABLE:
+        print("❌ 无法上传到Google Sheets: 缺少必要的库", file=sys.stderr)
+        return False
+    
+    try:
+        print(f"\n正在准备上传到Google Sheets...", file=sys.stderr)
+        print(f"目标表格ID: {sheet_id}", file=sys.stderr)
+        print(f"目标工作表: {worksheet_name}", file=sys.stderr)
+        
+        # 认证Google Sheets API
+        SCOPES = [
+            'https://www.googleapis.com/auth/spreadsheets',
+            'https://www.googleapis.com/auth/drive'
+        ]
+        
+        print(f"正在认证...", file=sys.stderr)
+        creds = Credentials.from_service_account_file(credentials_file, scopes=SCOPES)
+        client = gspread.authorize(creds)
+        
+        # 打开表格
+        print(f"正在打开表格...", file=sys.stderr)
+        spreadsheet = client.open_by_key(sheet_id)
+        print(f"表格名称: {spreadsheet.title}", file=sys.stderr)
+        
+        # 查找或创建工作表
+        try:
+            worksheet = spreadsheet.worksheet(worksheet_name)
+            print(f"找到工作表: {worksheet_name}", file=sys.stderr)
+        except:
+            worksheet = spreadsheet.add_worksheet(title=worksheet_name, rows=1000, cols=20)
+            print(f"创建新工作表: {worksheet_name}", file=sys.stderr)
+        
+        # 准备表头（中文+emoji，更美观）
+        headers = [
+            '🗺️ 地区',
+            '🏘️ 类型',
+            '🔢 序号',
+            '🏢 物件名称', 
+            '💰 价格(万円)', 
+            '📊 单价(万円/m²)',
+            '📏 面积(m²)',
+            '🏠 户型', 
+            '📅 建造年份',
+            '⏳ 房龄(年)',
+            '📍 地址',
+            '🚇 交通',
+            '🔗 详情链接',
+            '⏰ 更新时间'
+        ]
+        
+        # 准备数据行
+        rows = []
+        
+        # 如果是追加模式，读取现有数据并检查重复
+        start_row_num = 1  # 默认从第1行开始（覆盖模式）
+        existing_urls = set()  # 用于去重的URL集合
+        
+        if append_mode:
+            try:
+                existing_data = worksheet.get_all_values()
+                if existing_data:
+                    # 检查表头是否匹配
+                    if existing_data[0] != headers:
+                        print(f"⚠️  表头不匹配，将覆盖现有数据", file=sys.stderr)
+                        append_mode = False
+                    else:
+                        start_row_num = len(existing_data) + 1
+                        print(f"📝 追加模式：将从第 {start_row_num} 行开始添加数据", file=sys.stderr)
+                        
+                        # 提取现有数据的URL（用于去重）
+                        # URL在第12列（索引11）
+                        url_col_idx = 11
+                        for row in existing_data[1:]:  # 跳过表头
+                            if len(row) > url_col_idx and row[url_col_idx]:
+                                existing_urls.add(row[url_col_idx])
+                        
+                        print(f"📋 已有 {len(existing_urls)} 个房源URL，将自动去重", file=sys.stderr)
+                else:
+                    print(f"📝 工作表为空，将创建新表头", file=sys.stderr)
+                    rows.append(headers)
+            except:
+                print(f"⚠️  读取现有数据失败，将覆盖模式", file=sys.stderr)
+                append_mode = False
+        
+        if not append_mode:
+            rows.append(headers)
+        
+        print(f"正在处理 {len(properties)} 个房源数据...", file=sys.stderr)
+        
+        # 计算序号起始值（追加模式下从现有行数继续）
+        start_idx = start_row_num - 1 if append_mode else 1
+        
+        # 统计去重信息
+        skipped_count = 0
+        added_count = 0
+        
+        for prop in properties:
+            # 检查URL是否重复（去重）
+            prop_url = prop.get('url', 'N/A')
+            if prop_url in existing_urls:
+                skipped_count += 1
+                continue  # 跳过重复的房源
+            
+            # 提取并清理价格（万円）
+            price_text = prop.get('price', '0')
+            price_match = re.search(r'(\d+,?\d*)万円', price_text)
+            if price_match:
+                price = int(price_match.group(1).replace(',', ''))
+            else:
+                price = 0
+            
+            # 提取并清理面积（m²）
+            area_text = prop.get('area', '0')
+            area = extract_number(area_text)
+            
+            # 计算单价（万円/m²）
+            price_per_sqm = round(price / area, 2) if area > 0 and price > 0 else 0
+            
+            # 提取建造年份和房龄
+            age_text = prop.get('age', '')
+            year_match = re.search(r'(19|20)(\d{2})', age_text)
+            if year_match:
+                year = int(year_match.group(0))
+                age_years = 2025 - year
+            else:
+                year = ''
+                age_years = ''
+            
+            # 提取交通信息
+            access = prop.get('access', 'N/A')
+            if access and access != 'N/A':
+                # 清理交通信息，提取核心部分
+                access = access.strip()
+            
+            # 清理地址
+            address = prop.get('address', 'N/A')
+            if address and address != 'N/A':
+                address = address.strip()
+            
+            # 组装数据行（添加地区列和类型列）
+            current_idx = start_idx + added_count
+            row = [
+                station_name if station_name else 'N/A',  # 地区
+                property_type_name,  # 类型（公寓/一户建）
+                current_idx,  # 序号
+                prop.get('building_name', 'N/A'),
+                price if price > 0 else '',
+                price_per_sqm if price_per_sqm > 0 else '',
+                f"{area:.2f}" if area > 0 else '',
+                prop.get('layout', 'N/A'),
+                year if year else '',
+                age_years if age_years else '',
+                address,
+                access,
+                prop.get('url', 'N/A'),
+                datetime.now().strftime('%Y-%m-%d %H:%M')
+            ]
+            rows.append(row)
+            added_count += 1
+        
+        # 写入数据
+        if added_count == 0 and append_mode:
+            print(f"\n⚠️  所有 {len(properties)} 个房源均为重复，未添加任何新数据", file=sys.stderr)
+            print(f"📋 表格保持不变", file=sys.stderr)
+            return True
+        
+        if append_mode and start_row_num > 1:
+            # 追加模式：只写入新数据
+            print(f"正在追加数据（从第{start_row_num}行开始，共{added_count}个新房源）...", file=sys.stderr)
+            range_name = f'A{start_row_num}'
+            worksheet.update(values=rows, range_name=range_name, value_input_option='USER_ENTERED')
+        else:
+            # 覆盖模式：清空并重写
+            print(f"正在清空工作表...", file=sys.stderr)
+            worksheet.clear()
+            print(f"正在写入数据...", file=sys.stderr)
+            worksheet.update(values=rows, range_name='A1', value_input_option='USER_ENTERED')
+        
+        # 格式化表格
+        print(f"正在格式化表格...", file=sys.stderr)
+        
+        # 1. 冻结首行（表头）
+        worksheet.freeze(rows=1)
+        
+        # 2. 设置表头样式（粗体、背景色）
+        worksheet.format('A1:N1', {
+            'textFormat': {
+                'bold': True,
+                'fontSize': 11
+            },
+            'backgroundColor': {
+                'red': 0.2,
+                'green': 0.6,
+                'blue': 0.86
+            },
+            'horizontalAlignment': 'CENTER',
+            'verticalAlignment': 'MIDDLE'
+        })
+        
+        # 3. 设置数字列格式
+        total_rows = start_row_num + len(rows) - 1 if append_mode else len(rows) + 1
+        if total_rows > 1:
+            # 地区列 - 居中
+            worksheet.format(f'A2:A{total_rows}', {
+                'horizontalAlignment': 'CENTER'
+            })
+            
+            # 类型列 - 居中
+            worksheet.format(f'B2:B{total_rows}', {
+                'horizontalAlignment': 'CENTER'
+            })
+            
+            # 序号列 - 居中
+            worksheet.format(f'C2:C{total_rows}', {
+                'horizontalAlignment': 'CENTER'
+            })
+            
+            # 价格列（万円）- 千位分隔符
+            worksheet.format(f'E2:E{total_rows}', {
+                'numberFormat': {'type': 'NUMBER', 'pattern': '#,##0'},
+                'horizontalAlignment': 'RIGHT'
+            })
+            
+            # 单价列（万円/m²）- 保留2位小数
+            worksheet.format(f'F2:F{total_rows}', {
+                'numberFormat': {'type': 'NUMBER', 'pattern': '#,##0.00'},
+                'horizontalAlignment': 'RIGHT'
+            })
+            
+            # 面积列 - 保留2位小数
+            worksheet.format(f'G2:G{total_rows}', {
+                'numberFormat': {'type': 'NUMBER', 'pattern': '#0.00'},
+                'horizontalAlignment': 'RIGHT'
+            })
+            
+            # 建造年份和房龄 - 整数
+            worksheet.format(f'I2:J{total_rows}', {
+                'horizontalAlignment': 'CENTER'
+            })
+        
+        # 4. 设置列宽（使用batch_update API）
+        try:
+            requests = []
+            # 列宽设置（像素）
+            column_widths = [
+                (0, 100),  # A: 地区
+                (1, 80),   # B: 类型
+                (2, 80),   # C: 序号
+                (3, 250),  # D: 物件名称
+                (4, 120),  # E: 价格
+                (5, 140),  # F: 单价
+                (6, 100),  # G: 面积
+                (7, 100),  # H: 户型
+                (8, 110),  # I: 建造年份
+                (9, 100),  # J: 房龄
+                (10, 200), # K: 地址
+                (11, 250), # L: 交通
+                (12, 150), # M: 链接
+                (13, 150), # N: 更新时间
+            ]
+            
+            for col_idx, width in column_widths:
+                requests.append({
+                    "updateDimensionProperties": {
+                        "range": {
+                            "sheetId": worksheet.id,
+                            "dimension": "COLUMNS",
+                            "startIndex": col_idx,
+                            "endIndex": col_idx + 1
+                        },
+                        "properties": {
+                            "pixelSize": width
+                        },
+                        "fields": "pixelSize"
+                    }
+                })
+            
+            spreadsheet.batch_update({"requests": requests})
+        except Exception as e:
+            print(f"   ⚠️  设置列宽时出现警告: {e}", file=sys.stderr)
+            print(f"   （不影响数据，表格仍可正常使用）", file=sys.stderr)
+        
+        # 5. 添加边框（所有数据）
+        if total_rows > 1:
+            worksheet.format(f'A1:N{total_rows}', {
+                'borders': {
+                    'top': {'style': 'SOLID', 'width': 1},
+                    'bottom': {'style': 'SOLID', 'width': 1},
+                    'left': {'style': 'SOLID', 'width': 1},
+                    'right': {'style': 'SOLID', 'width': 1}
+                }
+            })
+        
+        print(f"\n✅ 上传成功！", file=sys.stderr)
+        print(f"📊 已添加 {added_count} 个新房源", file=sys.stderr)
+        if skipped_count > 0:
+            print(f"⏭️  跳过 {skipped_count} 个重复房源", file=sys.stderr)
+        print(f"🔗 表格链接: {spreadsheet.url}", file=sys.stderr)
+        print(f"📋 工作表: {worksheet_name}", file=sys.stderr)
+        
+        return True
+        
+    except FileNotFoundError:
+        print(f"\n❌ 找不到凭证文件: {credentials_file}", file=sys.stderr)
+        print(f"\n请按以下步骤配置:", file=sys.stderr)
+        print(f"1. 访问 https://console.cloud.google.com/", file=sys.stderr)
+        print(f"2. 创建项目并启用Google Sheets API", file=sys.stderr)
+        print(f"3. 创建服务账号并下载JSON密钥", file=sys.stderr)
+        print(f"4. 将密钥文件保存为 {credentials_file}", file=sys.stderr)
+        print(f"5. 在Google Sheets中与服务账号邮箱共享表格（编辑权限）", file=sys.stderr)
+        return False
+    except Exception as e:
+        print(f"\n❌ 上传到Google Sheets失败: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc(file=sys.stderr)
+        return False
+
 def main():
-    """主函数 - 抓取锦糸町附近的买房信息"""
-    print("开始抓取锦糸町附近的买房信息（二手公寓）...", file=sys.stderr)
+    """主函数 - 抓取指定地区的买房信息"""
+    parser = argparse.ArgumentParser(description='抓取Suumo房产信息并上传到Google Sheets')
+    parser.add_argument('--upload', action='store_true', 
+                       help='抓取后自动上传到Google Sheets')
+    parser.add_argument('--append', action='store_true',
+                       help='追加模式（不清空现有数据）')
+    parser.add_argument('--station', default='錦糸町',
+                       help='车站/地区名称（默认：錦糸町）')
+    parser.add_argument('--area-code', default='13107',
+                       help='区域代码（默认：13107=墨田区，13108=江东区）')
+    parser.add_argument('--type', default='mansion', choices=['mansion', 'house'],
+                       help='房屋类型（mansion=公寓，house=一户建，默认：mansion）')
+    parser.add_argument('--sheet-id', default='1b55-D54NLbBo1yJd-OjDy7rqCBEkK8Dza3vDLZCPaiU',
+                       help='Google Sheets ID（默认：预设表格）')
+    parser.add_argument('--worksheet', default='房地产池',
+                       help='工作表名称（默认：房地产池）')
+    parser.add_argument('--credentials', default='config/credentials.json',
+                       help='Google API凭证文件路径（默认：config/credentials.json）')
+    parser.add_argument('--max-pages', type=int, default=3,
+                       help='最大抓取页数（默认：3）')
+    parser.add_argument('--output', '-o',
+                       help='保存JSON到文件（可选）')
     
-    # 抓取锦糸町车站附近的售房信息
-    result = scrape_suumo_sale(station="錦糸町", max_pages=3)
+    args = parser.parse_args()
     
-    # 输出JSON格式结果（只输出JSON，不包含调试信息）
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    # 房屋类型名称映射
+    type_display_names = {
+        'mansion': '公寓',
+        'house': '一户建'
+    }
+    property_type_display = type_display_names.get(args.type, '公寓')
     
-    # 在stderr显示摘要（不影响JSON输出）
+    print(f"开始抓取{args.station}附近的买房信息（{property_type_display}）...", file=sys.stderr)
+    
+    # 抓取指定车站附近的售房信息
+    result = scrape_suumo_sale(station=args.station, area_code=args.area_code, property_type=args.type, max_pages=args.max_pages)
+    
+    # 保存JSON到文件（如果指定）
+    if args.output:
+        print(f"\n正在保存数据到: {args.output}", file=sys.stderr)
+        with open(args.output, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        print(f"✅ 数据已保存", file=sys.stderr)
+    
+    # 在stderr显示摘要
     if result.get("success"):
         print(f"\n✅ 抓取成功！", file=sys.stderr)
         print(f"📍 地点: 锦糸町附近（墨田区）", file=sys.stderr)
@@ -517,6 +984,32 @@ def main():
                     print(f"   🏠 户型: {prop['layout']}", file=sys.stderr)
                 if prop.get('age') and prop.get('age') != 'N/A':
                     print(f"   📅 年限: {prop['age']}", file=sys.stderr)
+        
+        # 如果指定了--upload参数，上传到Google Sheets
+        if args.upload:
+            print("\n" + "="*60, file=sys.stderr)
+            properties = result['data']['properties']
+            upload_success = upload_to_google_sheets(
+                properties=properties,
+                sheet_id=args.sheet_id,
+                station_name=args.station,
+                property_type_name=property_type_display,
+                worksheet_name=args.worksheet,
+                credentials_file=args.credentials,
+                append_mode=args.append
+            )
+            
+            if not upload_success:
+                print("\n⚠️  数据已抓取但未能上传到Google Sheets", file=sys.stderr)
+                print("   可以使用以下命令重试上传:", file=sys.stderr)
+                print(f"   python3 scripts/suumo_scraper.py --upload --output output/suumo.json", file=sys.stderr)
+        else:
+            print("\n💡 提示: 使用 --upload 参数可以自动上传到Google Sheets", file=sys.stderr)
+            print(f"   示例: python3 scripts/suumo_scraper.py --upload", file=sys.stderr)
+    
+    # 输出JSON格式结果到stdout（如果没有指定输出文件）
+    if not args.output:
+        print(json.dumps(result, ensure_ascii=False, indent=2))
 
 if __name__ == "__main__":
     main()
