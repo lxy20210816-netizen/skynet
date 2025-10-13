@@ -688,11 +688,29 @@ def upload_to_google_sheets(properties, sheet_id, station_name="", property_type
             
             # 提取并清理价格（万円）
             price_text = prop.get('price', '0')
-            price_match = re.search(r'(\d+,?\d*)万円', price_text)
-            if price_match:
-                price = int(price_match.group(1).replace(',', ''))
+            price = 0
+            
+            # 处理億万円格式（如：1億980万円）
+            if '億' in price_text:
+                oku_match = re.search(r'(\d+)億', price_text)
+                man_match = re.search(r'(\d+,?\d*)万円', price_text)
+                
+                oku_value = 0
+                man_value = 0
+                
+                if oku_match:
+                    oku_value = int(oku_match.group(1)) * 10000  # 1億 = 10000万
+                if man_match:
+                    man_value = int(man_match.group(1).replace(',', ''))
+                
+                price = oku_value + man_value
             else:
-                price = 0
+                # 普通格式（如：980万円）
+                price_match = re.search(r'(\d+,?\d*)万円', price_text)
+                if price_match:
+                    price = int(price_match.group(1).replace(',', ''))
+                else:
+                    price = 0
             
             # 提取并清理面积（m²）
             area_text = prop.get('area', '0')
