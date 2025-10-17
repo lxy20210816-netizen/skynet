@@ -56,13 +56,18 @@ def format_to_markdown(data):
     # 提取表头
     headers = data[0]
     
-    # 找出非空表头的索引
+    # 保留所有列，为空表头生成默认名称
     header_indices = []
     clean_headers = []
     for i, h in enumerate(headers):
+        header_indices.append(i)
+        # 如果表头为空，生成默认列名
         if h.strip():
-            header_indices.append(i)
             clean_headers.append(h)
+        else:
+            # 将数字索引转换为字母（0->A, 1->B, etc.）
+            col_letter = chr(65 + i) if i < 26 else f"列{i+1}"
+            clean_headers.append(f"列{col_letter}")
     
     # 输出表格
     if header_indices:

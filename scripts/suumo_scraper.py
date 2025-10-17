@@ -570,7 +570,7 @@ def extract_number(text):
     match = re.search(r'(\d+\.?\d*)', str(text))
     return float(match.group(1)) if match else 0
 
-def upload_to_google_sheets(properties, sheet_id, station_name="", property_type_name="公寓", worksheet_name='房地产池', credentials_file='config/credentials.json', append_mode=False):
+def upload_to_google_sheets(properties, sheet_id, station_name="", property_type_name="公寓", worksheet_name='房地产池', credentials_file='/Users/a0000/Desktop/workspace/skynet/config/credentials.json', append_mode=False):
     """
     上传房源数据到Google Sheets
     
@@ -935,7 +935,7 @@ def main():
                        help='Google Sheets ID（默认：预设表格）')
     parser.add_argument('--worksheet', default='房地产池',
                        help='工作表名称（默认：房地产池）')
-    parser.add_argument('--credentials', default='config/credentials.json',
+    parser.add_argument('--credentials', default='/Users/a0000/Desktop/workspace/skynet/config/credentials.json',
                        help='Google API凭证文件路径（默认：config/credentials.json）')
     parser.add_argument('--max-pages', type=int, default=3,
                        help='最大抓取页数（默认：3）')
