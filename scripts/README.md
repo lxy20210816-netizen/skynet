@@ -30,7 +30,7 @@ scripts/
 
 ```bash
 # 激活虚拟环境
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 source venv/bin/activate
 
 # 安装依赖（根据需要）
@@ -142,31 +142,31 @@ config/
 
 ## 📂 输出文件
 
-输出文件统一保存在 `/Users/a0000/Desktop/workspace/brain/skynet/`
+输出文件统一保存在 `~/Desktop/workspace/brain/skynet/`
 
 ## 📝 使用示例
 
 ### 抓取朝日新闻
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/scrapers/news/asahi/sync_asahi_news.sh
 ```
 
 ### 抓取雪球用户发文
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/scrapers/social/xueqiu/sync_xueqiu.sh
 ```
 
 ### 导出持仓数据
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/exporters/holdings/sync_holdings.sh
 ```
 
 ### 导出不动产数据
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/exporters/real_estate/sync_real_estate.sh
 ```
 
@@ -179,13 +179,13 @@ cd /Users/a0000/Desktop/workspace/skynet
 crontab -e
 
 # 每天早上8点抓取朝日新闻
-0 8 * * * /Users/a0000/Desktop/workspace/skynet/scripts/scrapers/news/asahi/sync_asahi_news.sh
+0 8 * * * ~/Desktop/workspace/skynet/scripts/scrapers/news/asahi/sync_asahi_news.sh
 
 # 每天早上9点同步雪球数据
-0 9 * * * /Users/a0000/Desktop/workspace/skynet/scripts/scrapers/social/xueqiu/sync_xueqiu.sh
+0 9 * * * ~/Desktop/workspace/skynet/scripts/scrapers/social/xueqiu/sync_xueqiu.sh
 
 # 每天晚上10点导出持仓数据
-0 22 * * * /Users/a0000/Desktop/workspace/skynet/scripts/exporters/holdings/sync_holdings.sh
+0 22 * * * ~/Desktop/workspace/skynet/scripts/exporters/holdings/sync_holdings.sh
 ```
 
 ## 📖 详细文档

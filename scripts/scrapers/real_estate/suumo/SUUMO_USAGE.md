@@ -137,7 +137,7 @@ python3 scripts/suumo_scraper.py --upload \
 
 ```bash
 # 添加到crontab，每天早上8点自动更新
-0 8 * * * cd /Users/a0000/Desktop/workspace/skynet && source venv/bin/activate && python3 scripts/suumo_scraper.py --upload --max-pages 5 2>&1 | logger -t suumo-scraper
+0 8 * * * cd ~/Desktop/workspace/skynet && source venv/bin/activate && python3 scripts/suumo_scraper.py --upload --max-pages 5 2>&1 | logger -t suumo-scraper
 ```
 
 ## 数据说明

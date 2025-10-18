@@ -15,7 +15,7 @@ from collections import defaultdict
 
 # Google Sheets API配置
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-CREDENTIALS_FILE = '/Users/a0000/Desktop/workspace/skynet/config/credentials.json'
+CREDENTIALS_FILE = os.path.expanduser('~/Desktop/workspace/skynet/config/credentials.json')
 SHEET_ID = '1b55-D54NLbBo1yJd-OjDy7rqCBEkK8Dza3vDLZCPaiU'
 WORKSHEET_NAME = '房地产池'
 

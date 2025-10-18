@@ -19,14 +19,14 @@
 #### 方法一：使用Shell脚本（推荐）
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/sync_xueqiu.sh
 ```
 
 #### 方法二：直接使用Python脚本
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 source venv/bin/activate
 
 # 抓取段永平的发文（最多50条）

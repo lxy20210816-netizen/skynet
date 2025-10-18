@@ -12,13 +12,13 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # 项目根目录
-PROJECT_DIR="/Users/a0000/Desktop/workspace/skynet"
-SCRIPT_PATH="${PROJECT_DIR}/scripts/fetch_asahi_rss.py"
-OUTPUT_DIR="/Users/a0000/Desktop/workspace/brain/skynet"
+PROJECT_DIR="$HOME/Desktop/workspace/skynet"
+SCRIPT_PATH="${PROJECT_DIR}/scripts/scrapers/news/asahi/fetch_asahi_rss.py"
+OUTPUT_DIR="$HOME/Desktop/workspace/brain/skynet"
 VENV_DIR="${PROJECT_DIR}/venv"
 
 echo -e "${BLUE}============================================================${NC}"
-echo -e "${BLUE}📰 朝日新闻RSS同步工具${NC}"
+echo -e "${BLUE}📰 朝日新闻RSS同步工具 - 全分类版${NC}"
 echo -e "${BLUE}============================================================${NC}"
 echo ""
 
@@ -36,7 +36,7 @@ source "${VENV_DIR}/bin/activate"
 echo -e "${YELLOW}🔍 检查依赖...${NC}"
 python3 -c "import feedparser, requests" 2>/dev/null || {
     echo -e "${YELLOW}📦 安装依赖...${NC}"
-    pip install feedparser requests -q
+    python3 -m pip install feedparser requests -q
 }
 
 # 运行脚本
@@ -55,7 +55,7 @@ if [ $? -eq 0 ]; then
     
     # 显示输出文件信息
     TODAY=$(date +%Y%m%d)
-    OUTPUT_FILE="${OUTPUT_DIR}/asahi_newsheadlines_${TODAY}.json"
+    OUTPUT_FILE="${OUTPUT_DIR}/asahi_all_news_${TODAY}.json"
     
     if [ -f "$OUTPUT_FILE" ]; then
         FILE_SIZE=$(ls -lh "$OUTPUT_FILE" | awk '{print $5}')
@@ -68,15 +68,24 @@ if [ $? -eq 0 ]; then
         echo -e "   数量: ${NEWS_COUNT} 条新闻"
         echo ""
         
-        # 显示前3条新闻标题
-        echo -e "${BLUE}📰 最新新闻预览:${NC}"
+        # 显示各分类统计
+        echo -e "${BLUE}📊 分类统计:${NC}"
         python3 -c "
 import json
+from collections import Counter
+
 with open('$OUTPUT_FILE', 'r', encoding='utf-8') as f:
     news = json.load(f)
-    for item in news[:3]:
-        print(f\"   {item['id']}. {item['title']}\")
-        print(f\"      {item['pubDate']}\")
+    
+    # 统计各分类
+    category_count = Counter()
+    for item in news:
+        cat_name = item.get('category_name', '未知')
+        category_count[cat_name] += 1
+    
+    # 显示统计
+    for cat_name, count in category_count.items():
+        print(f\"   {cat_name}: {count} 条\")
 " 2>/dev/null || echo "   (无法读取)"
         echo ""
     fi

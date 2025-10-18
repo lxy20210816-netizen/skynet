@@ -9,7 +9,7 @@
 ### 步骤1：创建登录配置文件
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet/config
+cd ~/Desktop/workspace/skynet/config
 cp xueqiu_login.json.example xueqiu_login.json
 ```
 
@@ -27,7 +27,7 @@ cp xueqiu_login.json.example xueqiu_login.json
 ### 步骤3：运行爬虫
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/sync_xueqiu.sh
 ```
 

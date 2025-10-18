@@ -10,7 +10,7 @@
 
 ```bash
 # 激活虚拟环境
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 source venv/bin/activate
 
 # 获取指定用户的推文

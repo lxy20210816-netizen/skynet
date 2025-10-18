@@ -11,7 +11,7 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
-CREDENTIALS_FILE = '/Users/a0000/Desktop/workspace/skynet/config/credentials.json'
+CREDENTIALS_FILE = os.path.expanduser('~/Desktop/workspace/skynet/config/credentials.json')
 SHEET_ID = '1b55-D54NLbBo1yJd-OjDy7rqCBEkK8Dza3vDLZCPaiU'
 WORKSHEET_INDEX = 2  # 资产明细
 

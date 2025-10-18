@@ -17,7 +17,7 @@
 ### 1. 配置登录信息
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet/config
+cd ~/Desktop/workspace/skynet/config
 
 # 从模板创建配置文件
 cp xueqiu_login.json.example xueqiu_login.json
@@ -39,14 +39,14 @@ nano xueqiu_login.json
 #### 方式一：一键脚本（推荐）
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/sync_xueqiu.sh
 ```
 
 #### 方式二：Python脚本
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 source venv/bin/activate
 
 # 抓取段永平的发文

@@ -3,7 +3,7 @@
 # 自动抓取多个地区的房产信息并上传到Google Sheets，同时导出Markdown
 
 # 绝对路径配置
-PROJECT_DIR="/Users/a0000/Desktop/workspace/skynet"
+PROJECT_DIR="$HOME/Desktop/workspace/skynet"
 VENV_ACTIVATE="${PROJECT_DIR}/venv/bin/activate"
 SCRAPER_SCRIPT="${PROJECT_DIR}/scripts/suumo_scraper.py"
 EXPORT_SCRIPT="${PROJECT_DIR}/scripts/export_real_estate.py"
@@ -132,6 +132,6 @@ echo "🎉 全部完成！"
 echo "============================================================"
 echo ""
 echo "📊 Google Sheets: https://docs.google.com/spreadsheets/d/${SHEET_ID}"
-echo "📄 本地Markdown: /Users/a0000/Desktop/workspace/brain/不动产池/不动产池.md"
+echo "📄 本地Markdown: $HOME/Desktop/workspace/brain/不动产池/不动产池.md"
 echo ""
 

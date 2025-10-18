@@ -13,7 +13,7 @@
 ### 方式一：一键运行（推荐）
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 ./scripts/sync_xueqiu.sh
 ```
 
@@ -22,7 +22,7 @@ cd /Users/a0000/Desktop/workspace/skynet
 ### 方式二：自定义参数
 
 ```bash
-cd /Users/a0000/Desktop/workspace/skynet
+cd ~/Desktop/workspace/skynet
 source venv/bin/activate
 
 # 基本用法

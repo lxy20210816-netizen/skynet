@@ -22,12 +22,12 @@ python3 export_holdings.py
 
 ## 📂 输出位置
 
-数据保存到: `/Users/a0000/Desktop/workspace/brain/skynet/`
+数据保存到: `~/Desktop/workspace/brain/skynet/`
 
 ## 🔄 定时任务
 
 ```bash
 # 每天晚上10点自动导出
-0 22 * * * /Users/a0000/Desktop/workspace/skynet/scripts/exporters/holdings/sync_holdings.sh
+0 22 * * * ~/Desktop/workspace/skynet/scripts/exporters/holdings/sync_holdings.sh
 ```
 

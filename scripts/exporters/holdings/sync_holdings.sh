@@ -3,10 +3,10 @@
 # 从Google Sheets读取"资产明细"并保存为Markdown格式
 
 # 绝对路径配置
-PROJECT_DIR="/Users/a0000/Desktop/workspace/skynet"
+PROJECT_DIR="$HOME/Desktop/workspace/skynet"
 VENV_ACTIVATE="${PROJECT_DIR}/venv/bin/activate"
 PYTHON_SCRIPT="${PROJECT_DIR}/scripts/export_holdings.py"
-OUTPUT_DIR="/Users/a0000/Desktop/workspace/brain/1-现状"
+OUTPUT_DIR="$HOME/Desktop/workspace/brain/1-现状"
 OUTPUT_FILE="${OUTPUT_DIR}/我的持仓.md"
 
 echo "============================================================"

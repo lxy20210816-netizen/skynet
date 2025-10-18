@@ -33,8 +33,8 @@ python3 twitter_selenium.py
 ## 📝 配置
 
 配置文件位置:
-- 登录信息: `/Users/a0000/Desktop/workspace/skynet/config/twitter_login.json`
-- Cookies: `/Users/a0000/Desktop/workspace/skynet/config/twitter_cookies.json`
+- 登录信息: `~/Desktop/workspace/skynet/config/twitter_login.json`
+- Cookies: `~/Desktop/workspace/skynet/config/twitter_cookies.json`
 
 ## ⚠️ 注意事项
 

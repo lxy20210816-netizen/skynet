@@ -29,5 +29,5 @@ python3 stock_indices.py
 
 ## 📂 输出位置
 
-数据保存到: `/Users/a0000/Desktop/workspace/brain/skynet/`
+数据保存到: `~/Desktop/workspace/brain/skynet/`
 

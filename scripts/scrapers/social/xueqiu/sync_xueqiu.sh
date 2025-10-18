@@ -3,7 +3,7 @@
 # 抓取段永平（大道无形我有型）的雪球发文并保存
 
 # 绝对路径配置
-PROJECT_DIR="/Users/a0000/Desktop/workspace/skynet"
+PROJECT_DIR="$HOME/Desktop/workspace/skynet"
 VENV_ACTIVATE="${PROJECT_DIR}/venv/bin/activate"
 PYTHON_SCRIPT="${PROJECT_DIR}/scripts/xueqiu_scraper.py"
 OUTPUT_DIR="${PROJECT_DIR}/output"
