@@ -111,3 +111,6 @@ config/*
 # Suumo data
 kinshicho*.json
 kinshicho*.csv
+
+# API密钥配置文件
+Documents/api_key_config.md
