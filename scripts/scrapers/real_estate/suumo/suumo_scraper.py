@@ -16,6 +16,7 @@ import time
 import random
 import json
 import sys
+import os
 import re
 import argparse
 from datetime import datetime
@@ -638,6 +639,7 @@ def upload_to_google_sheets(properties, sheet_id, station_name="", property_type
         
         # 如果是追加模式，读取现有数据并检查重复
         start_row_num = 1  # 默认从第1行开始（覆盖模式）
+        existing_records = set()  # 用于去重的记录集合
         existing_urls = set()  # 用于去重的URL集合
         
         if append_mode:
@@ -652,19 +654,31 @@ def upload_to_google_sheets(properties, sheet_id, station_name="", property_type
                         start_row_num = len(existing_data) + 1
                         print(f"📝 追加模式：将从第 {start_row_num} 行开始添加数据", file=sys.stderr)
                         
-                        # 提取现有数据的URL（用于去重）
-                        # URL在第12列（索引11）
-                        url_col_idx = 11
+                        # 提取现有数据用于去重
+                        # 地区列(0), 类型列(1), 物件名称列(3), URL列(12)
                         for row in existing_data[1:]:  # 跳过表头
-                            if len(row) > url_col_idx and row[url_col_idx]:
-                                existing_urls.add(row[url_col_idx])
+                            if len(row) >= 13:  # 确保有足够的列
+                                # 创建唯一标识：地区+类型+物件名称+URL
+                                region = row[0] if len(row) > 0 else ""
+                                prop_type = row[1] if len(row) > 1 else ""
+                                name = row[3] if len(row) > 3 else ""
+                                url = row[12] if len(row) > 12 else ""
+                                
+                                # 创建复合键用于去重
+                                composite_key = f"{region}|{prop_type}|{name}|{url}"
+                                existing_records.add(composite_key)
+                                
+                                # 也单独收集URL用于快速检查
+                                if url and url != 'N/A':
+                                    existing_urls.add(url)
                         
-                        print(f"📋 已有 {len(existing_urls)} 个房源URL，将自动去重", file=sys.stderr)
+                        print(f"📋 已有 {len(existing_records)} 个房源记录，将自动去重", file=sys.stderr)
+                        print(f"📋 其中 {len(existing_urls)} 个有有效URL", file=sys.stderr)
                 else:
                     print(f"📝 工作表为空，将创建新表头", file=sys.stderr)
                     rows.append(headers)
-            except:
-                print(f"⚠️  读取现有数据失败，将覆盖模式", file=sys.stderr)
+            except Exception as e:
+                print(f"⚠️  读取现有数据失败: {e}，将覆盖模式", file=sys.stderr)
                 append_mode = False
         
         if not append_mode:
@@ -680,10 +694,37 @@ def upload_to_google_sheets(properties, sheet_id, station_name="", property_type
         added_count = 0
         
         for prop in properties:
-            # 检查URL是否重复（去重）
+            # 创建当前记录的复合键
             prop_url = prop.get('url', 'N/A')
-            if prop_url in existing_urls:
+            prop_name = prop.get('building_name', 'N/A')
+            composite_key = f"{station_name}|{property_type_name}|{prop_name}|{prop_url}"
+            
+            # 多重去重检查
+            is_duplicate = False
+            duplicate_reason = ""
+            
+            # 检查1: 复合键去重（最严格）
+            if composite_key in existing_records:
+                is_duplicate = True
+                duplicate_reason = "完全重复记录"
+            
+            # 检查2: URL去重（如果URL有效）
+            elif prop_url != 'N/A' and prop_url in existing_urls:
+                is_duplicate = True
+                duplicate_reason = "URL重复"
+            
+            # 检查3: 名称+地区去重（防止同一房源不同URL）
+            elif prop_name != 'N/A':
+                name_region_key = f"{station_name}|{property_type_name}|{prop_name}"
+                for existing_key in existing_records:
+                    if name_region_key in existing_key:
+                        is_duplicate = True
+                        duplicate_reason = "名称+地区重复"
+                        break
+            
+            if is_duplicate:
                 skipped_count += 1
+                print(f"⏭️  跳过重复房源: {prop_name[:30]}... ({duplicate_reason})", file=sys.stderr)
                 continue  # 跳过重复的房源
             
             # 提取并清理价格（万円）
@@ -760,6 +801,11 @@ def upload_to_google_sheets(properties, sheet_id, station_name="", property_type
             ]
             rows.append(row)
             added_count += 1
+            
+            # 更新去重集合，防止本次批量添加中的重复
+            existing_records.add(composite_key)
+            if prop_url != 'N/A':
+                existing_urls.add(prop_url)
         
         # 写入数据
         if added_count == 0 and append_mode:

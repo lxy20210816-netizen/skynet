@@ -5,8 +5,8 @@
 # 绝对路径配置
 PROJECT_DIR="$HOME/Desktop/workspace/skynet"
 VENV_ACTIVATE="${PROJECT_DIR}/venv/bin/activate"
-SCRAPER_SCRIPT="${PROJECT_DIR}/scripts/suumo_scraper.py"
-EXPORT_SCRIPT="${PROJECT_DIR}/scripts/export_real_estate.py"
+SCRAPER_SCRIPT="${PROJECT_DIR}/scripts/scrapers/real_estate/suumo/suumo_scraper.py"
+EXPORT_SCRIPT="${PROJECT_DIR}/scripts/exporters/real_estate/export_real_estate.py"
 SHEET_ID="1b55-D54NLbBo1yJd-OjDy7rqCBEkK8Dza3vDLZCPaiU"
 WORKSHEET_NAME="房地产池"
 

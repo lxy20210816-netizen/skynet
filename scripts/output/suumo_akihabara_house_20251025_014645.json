@@ -1,0 +1,348 @@
+{
+  "success": true,
+  "data": {
+    "total_properties": 20,
+    "properties": [
+      {
+        "building_name": "◆築2年◆◇間口7m以上◇♪物件のお問合せはアドキャスト新宿支店まで♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_77563661/",
+        "price": "4600万円",
+        "address": "東京都江東区北砂５",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "39.7m2（登記）",
+          "間取り": "3LDK",
+          "築年月": "2022年10月"
+        },
+        "area": "39.7m2（登記）",
+        "layout": "3LDK",
+        "age": "2022年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "【弊社限定公開】駅徒歩2分の好立地！LDK16帖超+4部屋屋上付きプラン！",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_76489240/",
+        "price": "7277万円",
+        "address": "江東区亀戸5丁目　築浅屋上付きデザイナーズ中古戸建　…",
+        "access": "【弊社限定公開】駅徒歩2分の好立地！LDK16帖超+4部屋屋上付きプラン！",
+        "details": {
+          "専有面積": "65.61m2（19.84坪）（登記）",
+          "築年数": "築年月",
+          "築年月": "2012年11月"
+        },
+        "area": "65.61m2（19.84坪）（登記）",
+        "layout": "N/A",
+        "age": "2012年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "食洗機・浴室乾燥機等の充実した設備。ルーフバルコニー付きの私邸です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78132788/",
+        "price": "8280万円",
+        "address": "東京都江東区石島",
+        "access": "N/A",
+        "details": {
+          "専有面積": "48.86m2",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2020年1月"
+        },
+        "area": "48.86m2",
+        "layout": "2LDK",
+        "age": "2020年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "2017年5月築　土地55坪超えの大型物件。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78302646/",
+        "price": "2億1900万円",
+        "address": "東京都江東区南砂１",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "183.1m2（55.38坪）（登記）",
+          "間取り": "3LDK",
+          "築年月": "2017年5月"
+        },
+        "area": "183.1m2（55.38坪）（登記）",
+        "layout": "3LDK",
+        "age": "2017年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "５ＬＤＫ、南向き。２路線３駅利用可能",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78330895/",
+        "price": "2880万円",
+        "address": "東京都江東区大島３",
+        "access": "５ＬＤＫ、南向き。２路線３駅利用可能",
+        "details": {
+          "専有面積": "74.39m2（登記）",
+          "間取り": "5LDK",
+          "築年数": "築年月",
+          "築年月": "1954年8月"
+        },
+        "area": "74.39m2（登記）",
+        "layout": "5LDK",
+        "age": "1954年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "◇◆家事動線の良い４LDK・収納豊富・大型車駐車可能◆◇",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_77467577/",
+        "price": "6490万円",
+        "address": "東京都江東区東砂６",
+        "access": "N/A",
+        "details": {
+          "専有面積": "65.63m2（19.85坪）（登記）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2015年11月"
+        },
+        "area": "65.63m2（19.85坪）（登記）",
+        "layout": "3LDK",
+        "age": "2015年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "◇車庫付３ＬＤＫ２Ｓ◇２階に水回りをまとめたスムーズな家事動線♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78225780/",
+        "price": "6490万円",
+        "address": "東京都江東区東砂６",
+        "access": "N/A",
+        "details": {
+          "専有面積": "65.63m2（登記）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2015年11月"
+        },
+        "area": "65.63m2（登記）",
+        "layout": "3LDK",
+        "age": "2015年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "北砂４（南砂町駅） 980万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78644594/",
+        "price": "北砂４（南砂町駅） 980万円",
+        "address": "東京都江東区北砂４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "33.92m2",
+          "間取り": "3DK",
+          "築年数": "築年月",
+          "築年月": "1968年3月"
+        },
+        "area": "33.92m2",
+        "layout": "3DK",
+        "age": "1968年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "駅まで平坦、２階建",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78344861/",
+        "price": "1280万円",
+        "address": "東京都江東区大島５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "46.68m2",
+          "間取り": "4DK",
+          "築年数": "築年月",
+          "築年月": "1957年1月"
+        },
+        "area": "46.68m2",
+        "layout": "4DK",
+        "age": "1957年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "都心へアクセス良好な亀戸駅！普段の買い物に便利な商店街、スーパー有り！",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78640324/",
+        "price": "1580万円",
+        "address": "東京都江東区亀戸７",
+        "access": "都心へアクセス良好な亀戸駅！普段の買い物に便利な商店街、スーパー有り！",
+        "details": {
+          "専有面積": "13.81m2（4.17坪）（登記）",
+          "間取り": "2DK",
+          "築年数": "築年月",
+          "築年月": "1976年8月"
+        },
+        "area": "13.81m2（4.17坪）（登記）",
+        "layout": "2DK",
+        "age": "1976年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆戸建て住宅◆都営新宿線『大島』駅徒歩8分（急行停車駅）◆閑静な住宅街◆",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78553955/",
+        "price": "1980万円",
+        "address": "東京都江東区大島８",
+        "access": "◆戸建て住宅◆都営新宿線『大島』駅徒歩8分（急行停車駅）◆閑静な住宅街◆",
+        "details": {
+          "専有面積": "32.5m2",
+          "間取り": "2DK",
+          "築年数": "築年月",
+          "築年月": "1977年11月"
+        },
+        "area": "32.5m2",
+        "layout": "2DK",
+        "age": "1977年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "北砂５（大島駅） 2990万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78497762/",
+        "price": "北砂５（大島駅） 2990万円",
+        "address": "東京都江東区北砂５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "51.5m2（15.57坪）（登記）",
+          "間取り": "1K",
+          "築年数": "築年月",
+          "築年月": "1979年3月"
+        },
+        "area": "51.5m2（15.57坪）（登記）",
+        "layout": "1K",
+        "age": "1979年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "駅チカで毎日便利！家族みんなの笑顔があふれる4DK！",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78652199/",
+        "price": "4000万円",
+        "address": "東京都江東区大島４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "28.21m2（登記）",
+          "間取り": "4DK",
+          "築年数": "築年月",
+          "築年月": "2003年7月"
+        },
+        "area": "28.21m2（登記）",
+        "layout": "4DK",
+        "age": "2003年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "平成20年12月築　３LDK住戸都営新宿線「大島駅」徒歩９分に立地",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78408957/",
+        "price": "4270万円",
+        "address": "東京都江東区北砂６",
+        "access": "平成20年12月築　３LDK住戸都営新宿線「大島駅」徒歩９分に立地",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "43.9m2（登記）",
+          "間取り": "3LDK",
+          "築年月": "2008年12月"
+        },
+        "area": "43.9m2（登記）",
+        "layout": "3LDK",
+        "age": "2008年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "〇　亀戸駅約７分の閑静な住宅街〇　空室につきお気軽にご内見可.",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78046844/",
+        "price": "4300万円",
+        "address": "東京都江東区亀戸５",
+        "access": "〇　亀戸駅約７分の閑静な住宅街〇　空室につきお気軽にご内見可.",
+        "details": {
+          "専有面積": "53.41m2（登記）",
+          "間取り": "3DK",
+          "築年数": "築年月",
+          "築年月": "1978年3月"
+        },
+        "area": "53.41m2（登記）",
+        "layout": "3DK",
+        "age": "1978年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "大島４（西大島駅） 4490万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_77918774/",
+        "price": "大島４（西大島駅） 4490万円",
+        "address": "東京都江東区大島４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "40.72m2（12.31坪）（登記）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1927年1月"
+        },
+        "area": "40.72m2（12.31坪）（登記）",
+        "layout": "3LDK",
+        "age": "1927年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "亀戸３（亀戸駅） 4680万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78622152/",
+        "price": "亀戸３（亀戸駅） 4680万円",
+        "address": "東京都江東区亀戸３",
+        "access": "N/A",
+        "details": {
+          "間取り": "2LDK",
+          "専有面積": "74.07m2（22.40坪）",
+          "築年数": "築年月",
+          "築年月": "2015年7月"
+        },
+        "area": "74.07m2（22.40坪）",
+        "layout": "2LDK",
+        "age": "2015年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "東砂６（南砂町駅） 4980万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_77762424/",
+        "price": "東砂６（南砂町駅） 4980万円",
+        "address": "東京都江東区東砂６",
+        "access": "N/A",
+        "details": {
+          "専有面積": "58.07m2（17.56坪）（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2003年9月"
+        },
+        "area": "58.07m2（17.56坪）（登記）",
+        "layout": "4LDK",
+        "age": "2003年9月",
+        "rooms": []
+      },
+      {
+        "building_name": "南砂７（南砂町駅） 5280万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_78379645/",
+        "price": "南砂７（南砂町駅） 5280万円",
+        "address": "東京都江東区南砂７",
+        "access": "N/A",
+        "details": {
+          "専有面積": "36.9m2",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2019年11月"
+        },
+        "area": "36.9m2",
+        "layout": "3LDK",
+        "age": "2019年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "東砂４（南砂町駅） 5980万円",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_koto/nc_76298940/",
+        "price": "東砂４（南砂町駅） 5980万円",
+        "address": "東京都江東区東砂４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "71.06m2（21.49坪）（登記）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2014年8月"
+        },
+        "area": "71.06m2（21.49坪）（登記）",
+        "layout": "3LDK",
+        "age": "2014年8月",
+        "rooms": []
+      }
+    ],
+    "timestamp": "2025-10-25T01:47:31.305413"
+  }
+}

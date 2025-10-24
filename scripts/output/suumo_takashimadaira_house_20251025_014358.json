@@ -1,0 +1,349 @@
+{
+  "success": true,
+  "data": {
+    "total_properties": 20,
+    "properties": [
+      {
+        "building_name": "～駅徒歩5分、フルリノベーションで蘇る軽量鉄骨の邸宅～",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78324073/",
+        "price": "4180万円",
+        "address": "東京都板橋区赤塚新町３",
+        "access": "～駅徒歩5分、フルリノベーションで蘇る軽量鉄骨の邸宅～",
+        "details": {
+          "専有面積": "118.66m2（35.89坪）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1988年3月"
+        },
+        "area": "118.66m2（35.89坪）",
+        "layout": "3LDK",
+        "age": "1988年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "広いルーフバルコニー！高台眺望良好賃貸併用住宅で（2F賃貸中14万）、らくら",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78441850/",
+        "price": "4880万円",
+        "address": "東京都板橋区若木２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "112.17m2（33.93坪）（登記）",
+          "間取り": "5LDDKK",
+          "築年数": "築年月",
+          "築年月": "1994年7月"
+        },
+        "area": "112.17m2（33.93坪）（登記）",
+        "layout": "5LDDKK",
+        "age": "1994年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "駅徒歩8分のリフォーム物件",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78264387/",
+        "price": "5180万円",
+        "address": "東京都板橋区舟渡２",
+        "access": "駅徒歩8分のリフォーム物件",
+        "details": {
+          "専有面積": "66.47m2（20.10坪）（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2004年2月"
+        },
+        "area": "66.47m2（20.10坪）（登記）",
+        "layout": "4LDK",
+        "age": "2004年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆◇リフォーム戸建◆全室南向き４ＬＤＫ◇◇浮間公園が近く緑あふれる住環境",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78324243/",
+        "price": "5180万円",
+        "address": "板橋区舟渡2丁目　新築戸建",
+        "access": "N/A",
+        "details": {
+          "専有面積": "66.47m2",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2004年2月"
+        },
+        "area": "66.47m2",
+        "layout": "4LDK",
+        "age": "2004年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "お電話から最短20分で内覧可！当日見学予約大歓迎♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78251560/",
+        "price": "5180万円",
+        "address": "東京都板橋区舟渡２",
+        "access": "駅8分にリノベーション戸建新登場♪",
+        "details": {
+          "専有面積": "66.47m2（登記）",
+          "間取り": "4LDK",
+          "築年数": "2004年築のリノベーション戸建！車庫スペースも広く、5千万円台は一見の価値ありです！",
+          "築年月": "2004年2月"
+        },
+        "area": "66.47m2（登記）",
+        "layout": "4LDK",
+        "age": "2004年築のリノベーション戸建！車庫スペースも広く、5千万円台は一見の価値ありです！",
+        "rooms": []
+      },
+      {
+        "building_name": "食洗機や床暖房、浴室乾燥機などの設備充実。対面式キッチン採用の私邸です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_77352287/",
+        "price": "5180万円",
+        "address": "東京都板橋区中台２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "62.8m2",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "2024年3月"
+        },
+        "area": "62.8m2",
+        "layout": "1LDK",
+        "age": "2024年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "☆2011年11月新築、外壁塗装実施☆☆アイムユニバース施工の住宅☆",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78212184/",
+        "price": "5380万円",
+        "address": "板橋区徳丸4丁目　中古戸建",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "70m2（21.17坪）",
+          "間取り": "3LDK",
+          "築年月": "2011年11月"
+        },
+        "area": "70m2（21.17坪）",
+        "layout": "3LDK",
+        "age": "2011年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "家探しをもっとCOOLに ＝3LDK・2013年築の中古戸建＝",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_77526564/",
+        "price": "5480万円",
+        "address": "東京都板橋区前野町６",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "48.59m2（14.69坪）（登記）",
+          "間取り": "3LDK",
+          "築年月": "2013年9月"
+        },
+        "area": "48.59m2（14.69坪）（登記）",
+        "layout": "3LDK",
+        "age": "2013年9月",
+        "rooms": []
+      },
+      {
+        "building_name": "～2013年築の邸宅、パントリー収納やWICなどの収納に優れた間取り設計～",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78395133/",
+        "price": "5480万円",
+        "address": "東京都板橋区前野町６",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "48.59m2（14.69坪）（登記）",
+          "間取り": "3LDK",
+          "築年月": "2013年9月"
+        },
+        "area": "48.59m2（14.69坪）（登記）",
+        "layout": "3LDK",
+        "age": "2013年9月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆◇南向き◆日当り良好３ＬＤＫ◇◇築１２年　綺麗にお住まいです◆",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78103526/",
+        "price": "5480万円",
+        "address": "板橋区前野町　中古戸建",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "48.59m2（登記）",
+          "間取り": "3LDK",
+          "築年月": "2013年9月"
+        },
+        "area": "48.59m2（登記）",
+        "layout": "3LDK",
+        "age": "2013年9月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆◇二世帯向け◆「中板橋」駅歩９分◇◇２０２５年３月リフォーム済み◆",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_77809460/",
+        "price": "5500万円",
+        "address": "東京都板橋区弥生町",
+        "access": "◆◇二世帯向け◆「中板橋」駅歩９分◇◇２０２５年３月リフォーム済み◆",
+        "details": {
+          "専有面積": "99.17m2",
+          "間取り": "6LDK",
+          "築年数": "築年月",
+          "築年月": "1977年12月"
+        },
+        "area": "99.17m2",
+        "layout": "6LDK",
+        "age": "1977年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆◇駅歩５分◆リフォーム戸建◇◇イオンまで５分◆周辺買い物施設充実◇",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78145405/",
+        "price": "5850万円",
+        "address": "板橋区徳丸　中古戸建",
+        "access": "◆◇駅歩５分◆リフォーム戸建◇◇イオンまで５分◆周辺買い物施設充実◇",
+        "details": {
+          "専有面積": "84.2m2",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2000年2月"
+        },
+        "area": "84.2m2",
+        "layout": "3LDK",
+        "age": "2000年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "敷地128㎡超の開放感×三世帯住宅",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78236333/",
+        "price": "5980万円",
+        "address": "東京都板橋区西台２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "敷地128㎡超の開放感×三世帯住宅",
+          "間取り": "2LLDDKK",
+          "築年数": "築年月",
+          "築年月": "2014年12月"
+        },
+        "area": "敷地128㎡超の開放感×三世帯住宅",
+        "layout": "2LLDDKK",
+        "age": "2014年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆建物面積約１０６㎡超！◆◆４LDK＋車庫付♪３階建て♪◆",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_76238467/",
+        "price": "6130万円",
+        "address": "板橋区蓮根三丁目　中古戸建",
+        "access": "N/A",
+        "details": {
+          "専有面積": "◆建物面積約１０６㎡超！◆◆４LDK＋車庫付♪３階建て♪◆",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2012年8月"
+        },
+        "area": "◆建物面積約１０６㎡超！◆◆４LDK＋車庫付♪３階建て♪◆",
+        "layout": "4LDK",
+        "age": "2012年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "【5LDK】陽光あふれる南西角地。小中学校が徒歩7分！子育てに最適な住環境",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78190328/",
+        "price": "6280万円",
+        "address": "東京都板橋区高島平５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "100.1m2",
+          "間取り": "5LDK",
+          "築年数": "築年月",
+          "築年月": "1997年8月"
+        },
+        "area": "100.1m2",
+        "layout": "5LDK",
+        "age": "1997年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "【価格変更】弊社で現地販売会開催中！陽当り・通風良好な、南向きの邸",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78322781/",
+        "price": "6280万円",
+        "address": "板橋区志村3丁目",
+        "access": "N/A",
+        "details": {
+          "専有面積": "100m2（30.24坪）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2002年12月"
+        },
+        "area": "100m2（30.24坪）",
+        "layout": "3LDK",
+        "age": "2002年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "積水ハウス（株）施工・鉄骨造スレート葺３階建！",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_77161471/",
+        "price": "6500万円",
+        "address": "板橋区新河岸一丁目スムストック",
+        "access": "N/A",
+        "details": {
+          "専有面積": "111.98m2（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2002年7月"
+        },
+        "area": "111.98m2（登記）",
+        "layout": "4LDK",
+        "age": "2002年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "【2019年築・南向き戸建】2階建×4部屋×20帖LDK×車庫・明るいお家",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_78541824/",
+        "price": "6500万円",
+        "address": "板橋区高島平5丁目・築浅戸建",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "103.04m2（31.16坪）",
+          "間取り": "4LDK",
+          "築年月": "2019年1月"
+        },
+        "area": "103.04m2（31.16坪）",
+        "layout": "4LDK",
+        "age": "2019年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "【充実な周辺環境と質の高い暮らしが可能】",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_76126853/",
+        "price": "6980万円",
+        "address": "板橋区高島平1丁目　戸建",
+        "access": "N/A",
+        "details": {
+          "専有面積": "58.28m2（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2005年12月"
+        },
+        "area": "58.28m2（登記）",
+        "layout": "4LDK",
+        "age": "2005年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "家探しをもっとCOOLに ＝RC造×駅徒歩4分×ルーフテラスのある邸宅＝",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_itabashi/nc_77396488/",
+        "price": "6980万円",
+        "address": "東京都板橋区高島平１",
+        "access": "家探しをもっとCOOLに ＝RC造×駅徒歩4分×ルーフテラスのある邸宅＝",
+        "details": {
+          "専有面積": "58.28m2（17.62坪）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2005年12月"
+        },
+        "area": "58.28m2（17.62坪）",
+        "layout": "4LDK",
+        "age": "2005年12月",
+        "rooms": []
+      }
+    ],
+    "timestamp": "2025-10-25T01:44:44.331243"
+  }
+}

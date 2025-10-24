@@ -1,0 +1,519 @@
+{
+  "success": true,
+  "data": {
+    "total_properties": 30,
+    "properties": [
+      {
+        "building_name": "【即日案内!】頭金0円から購入可!ペット2匹OK×角部屋×【新宿/秋葉原】直通!",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78645985/",
+        "price": "2590万円",
+        "address": "東京都墨田区千歳１-1-8",
+        "access": "N/A",
+        "details": {
+          "専有面積": "34.09m2（10.31坪）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "1979年2月"
+        },
+        "area": "34.09m2（10.31坪）",
+        "layout": "1LDK",
+        "age": "1979年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "○リフォーム履歴有 （２０１８年１０月）　○３路線２駅利用可能 　○角部屋",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_77329600/",
+        "price": "2690万円",
+        "address": "東京都墨田区緑１-２１－１３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "36.94m2（11.17坪）（壁芯）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "1981年10月"
+        },
+        "area": "36.94m2（11.17坪）（壁芯）",
+        "layout": "1LDK",
+        "age": "1981年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "【ペット飼育可※細則・南西向きバルコニー・和室付き】",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_77760182/",
+        "price": "2980万円",
+        "address": "東京都墨田区墨田４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.6m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1988年3月"
+        },
+        "area": "61.6m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1988年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "～当日ご案内可～◇頭金0円からのご提案◇駅７分◇３LDK、クリーニング済！",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78647407/",
+        "price": "2980万円",
+        "address": "東京都墨田区墨田４-34-22",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.6m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1988年3月"
+        },
+        "area": "61.6m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1988年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "【即日案内!】頭金0円から購入可!角部屋　南向き　24ｈゴミ出し可",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78639434/",
+        "price": "3280万円",
+        "address": "東京都墨田区東駒形４-17-1",
+        "access": "N/A",
+        "details": {
+          "専有面積": "39.22m2（11.86坪）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "1979年2月"
+        },
+        "area": "39.22m2（11.86坪）",
+        "layout": "1LDK",
+        "age": "1979年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "≪２０１７年フルリノベーション物件≫非常に丁寧にお使いです。",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78432652/",
+        "price": "3380万円",
+        "address": "東京都墨田区墨田５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "71.25m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1989年10月"
+        },
+        "area": "71.25m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1989年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "～当日ご案内可～◇頭金0円からのご提案◇駅４分◇１SDK、リノベ済！",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78647374/",
+        "price": "3398万円",
+        "address": "東京都墨田区緑１-21-13",
+        "access": "N/A",
+        "details": {
+          "専有面積": "53.7m2（壁芯）",
+          "間取り": "1DK",
+          "築年数": "築年月",
+          "築年月": "1981年10月"
+        },
+        "area": "53.7m2（壁芯）",
+        "layout": "1DK",
+        "age": "1981年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "≪いまからのご見学可能です≫ご自宅送迎によるご来店・ご内覧サービス実施中",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78197728/",
+        "price": "3398万円",
+        "address": "東京都墨田区緑１",
+        "access": "N/A",
+        "details": {
+          "専有面積": "53.7m2（壁芯）",
+          "間取り": "1DK",
+          "築年数": "築年月",
+          "築年月": "1981年10月"
+        },
+        "area": "53.7m2（壁芯）",
+        "layout": "1DK",
+        "age": "1981年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "４路線３駅利用可能な立地！東京ソラマチが生活圏！利便性の高い住環境！",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78510669/",
+        "price": "3680万円",
+        "address": "東京都墨田区業平１",
+        "access": "４路線３駅利用可能な立地！東京ソラマチが生活圏！利便性の高い住環境！",
+        "details": {
+          "専有面積": "53.1m2（壁芯）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "1972年7月"
+        },
+        "area": "53.1m2（壁芯）",
+        "layout": "1LDK",
+        "age": "1972年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "●〇駅近の角住戸●〇2リノベで、光・風・家事効率をコンパクトに♪",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78426949/",
+        "price": "3780万円",
+        "address": "東京都墨田区立花３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.43m2（18.58坪）（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1980年3月"
+        },
+        "area": "61.43m2（18.58坪）（壁芯）",
+        "layout": "2LDK",
+        "age": "1980年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "◇都営新宿線「森下」駅６分◇最上階×開放的なルーフバルコニー×２ＬＤＫ",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_77718526/",
+        "price": "3880万円",
+        "address": "東京都墨田区千歳２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "45.07m2（13.63坪）（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1982年6月"
+        },
+        "area": "45.07m2（13.63坪）（壁芯）",
+        "layout": "2LDK",
+        "age": "1982年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆物件詳細はアドキャスト錦糸町支店迄◆※オンラインで見学、ご相談も可能です",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78455170/",
+        "price": "3980万円",
+        "address": "東京都墨田区石原３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "46.1m2（壁芯）",
+          "間取り": "2DK",
+          "築年数": "築年月",
+          "築年月": "1989年1月"
+        },
+        "area": "46.1m2（壁芯）",
+        "layout": "2DK",
+        "age": "1989年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "・新規リフォーム物件(2025年12月19日完成予定)　・南向き住戸",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78482627/",
+        "price": "4190万円",
+        "address": "東京都墨田区緑３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "43.2m2（壁芯）",
+          "間取り": "2DK",
+          "築年数": "築年月",
+          "築年月": "1984年1月"
+        },
+        "area": "43.2m2（壁芯）",
+        "layout": "2DK",
+        "age": "1984年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "≪いまからのご見学可能です≫ご自宅送迎によるご来店・ご内覧サービス実施中",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78543060/",
+        "price": "4199万円",
+        "address": "東京都墨田区吾妻橋２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "45.36m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1983年2月"
+        },
+        "area": "45.36m2（壁芯）",
+        "layout": "2LDK",
+        "age": "1983年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆今だけ、提携金利0.54％◆～駅チカ1分×リフォ済×最上階角住戸～",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78602646/",
+        "price": "4199万円",
+        "address": "東京都墨田区吾妻橋２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "45.36m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1983年2月"
+        },
+        "area": "45.36m2（壁芯）",
+        "layout": "2LDK",
+        "age": "1983年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆物件詳細はアドキャスト錦糸町支店迄◆※オンラインで見学、ご相談も可能です",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78409213/",
+        "price": "4299万円",
+        "address": "東京都墨田区京島３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "49.88m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1982年6月"
+        },
+        "area": "49.88m2（壁芯）",
+        "layout": "2LDK",
+        "age": "1982年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "■９階建て９階部分・最上階につき眺望良好■南東向きにつき陽当たり良好",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78202606/",
+        "price": "4590万円",
+        "address": "東京都墨田区京島１-４５－1",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.27m2（18.53坪）（壁芯）",
+          "間取り": "3DK",
+          "築年数": "築年月",
+          "築年月": "1980年10月"
+        },
+        "area": "61.27m2（18.53坪）（壁芯）",
+        "layout": "3DK",
+        "age": "1980年10月",
+        "rooms": []
+      },
+      {
+        "building_name": "南向き×陽当り良好×ペット飼育可（飼育細則有り）",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78286612/",
+        "price": "4798万円",
+        "address": "東京都墨田区堤通１",
+        "access": "N/A",
+        "details": {
+          "専有面積": "70.01m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2000年11月"
+        },
+        "area": "70.01m2（壁芯）",
+        "layout": "2LDK",
+        "age": "2000年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "☆今だけ、提携金利0.54％☆～駅チカ9分×ペットOK×眺望良好～",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78648218/",
+        "price": "4980万円",
+        "address": "東京都墨田区立花５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "45m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2020年5月"
+        },
+        "area": "45m2（壁芯）",
+        "layout": "2LDK",
+        "age": "2020年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "【当日の見学可能です】リビングを中心とした間取りで家族団欒が叶う幸せ空間",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78366023/",
+        "price": "4980万円",
+        "address": "東京都墨田区八広３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.6m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1997年3月"
+        },
+        "area": "61.6m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1997年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "■ リフォーム履歴有（２０２１年１０月完成)×ペット飼育可（細則有）",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_77926151/",
+        "price": "4980万円",
+        "address": "東京都墨田区東駒形４-１９－２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "57.26m2（17.32坪）（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1979年6月"
+        },
+        "area": "57.26m2（17.32坪）（壁芯）",
+        "layout": "2LDK",
+        "age": "1979年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "西・北の2方向角部屋。約16.5帖のLDK。室内リフォーム履歴有♪",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78451928/",
+        "price": "4980万円",
+        "address": "東京都墨田区東向島６",
+        "access": "角部屋、駅徒歩5分、室内リフォーム履歴あり！内見希望お待ちしております！",
+        "details": {
+          "専有面積": "60.15m2",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "2009年5月"
+        },
+        "area": "60.15m2",
+        "layout": "1LDK",
+        "age": "2009年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "～新規リノベーション～●「鐘ヶ淵」駅３分の立地●弊社売主物件です！",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78465705/",
+        "price": "4980万円",
+        "address": "東京都墨田区墨田４-2-16",
+        "access": "N/A",
+        "details": {
+          "専有面積": "60.84m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1996年7月"
+        },
+        "area": "60.84m2（壁芯）",
+        "layout": "2LDK",
+        "age": "1996年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆物件詳細はアドキャスト錦糸町支店迄◆※オンラインで見学、ご相談も可能です",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78266411/",
+        "price": "4980万円",
+        "address": "東京都墨田区八広３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "61.6m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1997年3月"
+        },
+        "area": "61.6m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1997年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "新規リノベーション(２０２５年８月完成) × ペット飼育可※細則有",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_77475366/",
+        "price": "4990万円",
+        "address": "東京都墨田区堤通１-１５－２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "70.01m2（21.17坪）（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2000年11月"
+        },
+        "area": "70.01m2（21.17坪）（壁芯）",
+        "layout": "3LDK",
+        "age": "2000年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "【やり取りなし１分で見学予約完了】新耐震×ペット可♪広々ルーフバルコニー♪",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78601662/",
+        "price": "4990万円",
+        "address": "東京都墨田区立花５",
+        "access": "N/A",
+        "details": {
+          "専有面積": "47.85m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2020年5月"
+        },
+        "area": "47.85m2（壁芯）",
+        "layout": "2LDK",
+        "age": "2020年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "新規リノベーション物件×三方角部屋×ペット飼育可（２匹迄、他細則あり）",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78376363/",
+        "price": "4990万円",
+        "address": "東京都墨田区吾妻橋２-２０－７",
+        "access": "N/A",
+        "details": {
+          "専有面積": "52.92m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1982年8月"
+        },
+        "area": "52.92m2（壁芯）",
+        "layout": "2LDK",
+        "age": "1982年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "■5階、南東向き角部屋住戸のため日照通風良好■ペット飼育可(制限あり)",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78130750/",
+        "price": "5080万円",
+        "address": "東京都墨田区東向島６-47-7",
+        "access": "N/A",
+        "details": {
+          "専有面積": "50.53m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2018年5月"
+        },
+        "area": "50.53m2（壁芯）",
+        "layout": "2LDK",
+        "age": "2018年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "≪いまからのご見学可能です≫ご自宅送迎によるご来店・ご内覧サービス実施中",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78513878/",
+        "price": "5280万円",
+        "address": "東京都墨田区押上３",
+        "access": "N/A",
+        "details": {
+          "専有面積": "74.66m2（壁芯）",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "1992年6月"
+        },
+        "area": "74.66m2（壁芯）",
+        "layout": "3LDK",
+        "age": "1992年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "『2駅5路線』利用可☆ペット飼育可能マンション☆南西向きで陽当り良好☆",
+        "url": "https://suumo.jp/ms/chuko/tokyo/sc_sumida/nc_78529760/",
+        "price": "5280万円",
+        "address": "東京都墨田区向島５",
+        "access": "『2駅5路線』利用可☆ペット飼育可能マンション☆南西向きで陽当り良好☆ / 隅田公園近くで落ち着いた住環境ながら、市街へのアクセスが良いのが当マンションの魅力です。東武伊勢崎線曳舟駅周辺には商業施設も充実しています。隅田川沿いやスカイツリーまでお散歩コースもオススメです！",
+        "details": {
+          "専有面積": "57.06m2（壁芯）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2004年3月"
+        },
+        "area": "57.06m2（壁芯）",
+        "layout": "2LDK",
+        "age": "2004年3月",
+        "rooms": []
+      }
+    ],
+    "timestamp": "2025-10-25T01:39:59.213390"
+  }
+}

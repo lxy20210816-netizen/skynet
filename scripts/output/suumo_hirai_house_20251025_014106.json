@@ -1,0 +1,349 @@
+{
+  "success": true,
+  "data": {
+    "total_properties": 20,
+    "properties": [
+      {
+        "building_name": "食洗機や浴室乾燥機など便利な設備のある私邸。3沿線3駅が徒歩圏内です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77342414/",
+        "price": "3680万円",
+        "address": "東京都墨田区八広２",
+        "access": "食洗機や浴室乾燥機など便利な設備のある私邸。3沿線3駅が徒歩圏内です。",
+        "details": {
+          "専有面積": "60.1m2",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2022年11月"
+        },
+        "area": "60.1m2",
+        "layout": "2LDK",
+        "age": "2022年11月",
+        "rooms": []
+      },
+      {
+        "building_name": "食洗機や床暖房、浴室乾燥機などの設備充実。「八広」駅歩7分の私邸です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77434800/",
+        "price": "3980万円",
+        "address": "東京都墨田区墨田４",
+        "access": "食洗機や床暖房、浴室乾燥機などの設備充実。「八広」駅歩7分の私邸です。",
+        "details": {
+          "専有面積": "57.71m2",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2019年2月"
+        },
+        "area": "57.71m2",
+        "layout": "2LDK",
+        "age": "2019年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "墨田の閑静な住宅地に佇む築浅美築♪ルーフバルコニーつき３部屋設計！",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78532921/",
+        "price": "4380万円",
+        "address": "東京都墨田区墨田４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "60.11m2（18.18坪）（登記）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "2020年5月"
+        },
+        "area": "60.11m2（18.18坪）（登記）",
+        "layout": "1LDK",
+        "age": "2020年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "リビング上部に天窓のある明るいLDK。ルーフバルコニー付きの住宅です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78179650/",
+        "price": "4380万円",
+        "address": "東京都墨田区墨田４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "60.11m2",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "2020年5月"
+        },
+        "area": "60.11m2",
+        "layout": "1LDK",
+        "age": "2020年5月",
+        "rooms": []
+      },
+      {
+        "building_name": "家族の集まるLDKには対面式キッチン採用。ルーフバルコニー付きの私邸です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77272297/",
+        "price": "4980万円",
+        "address": "東京都墨田区東向島２",
+        "access": "オープンセレクション東向島アクセス",
+        "details": {
+          "専有面積": "71.83m2",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2014年8月"
+        },
+        "area": "71.83m2",
+        "layout": "2LDK",
+        "age": "2014年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "食洗機や浴室乾燥機などの充実した設備。「八広」駅徒歩10分の私邸です。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78246249/",
+        "price": "4980万円",
+        "address": "東京都墨田区墨田４",
+        "access": "食洗機や浴室乾燥機などの充実した設備。「八広」駅徒歩10分の私邸です。 / オープンセレクション八広アクセス",
+        "details": {
+          "専有面積": "35.38m2",
+          "間取り": "3LDK",
+          "築年数": "築年月",
+          "築年月": "2023年1月"
+        },
+        "area": "35.38m2",
+        "layout": "3LDK",
+        "age": "2023年1月",
+        "rooms": []
+      },
+      {
+        "building_name": "こだわりの注文住宅×ルーフバルコニー付第三吾嬬小学校エリア",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78585595/",
+        "price": "5280万円",
+        "address": "墨田区八広二丁目戸建",
+        "access": "自転車で錦糸町駅や周辺の駅へも行けます。雨の場合もバスが出ているため問題なく通勤通学が可能です。また、京成線が都営浅草線、京急線に乗り入れの為、成田空港、羽田空港の利用もとても便利です。",
+        "details": {
+          "専有面積": "46.71m2（登記）",
+          "間取り": "1LDK",
+          "築年数": "築年月",
+          "築年月": "2013年9月"
+        },
+        "area": "46.71m2（登記）",
+        "layout": "1LDK",
+        "age": "2013年9月",
+        "rooms": []
+      },
+      {
+        "building_name": "【駅徒歩9分の好立地・南向きバルコニ有・車庫完備】",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78511128/",
+        "price": "5980万円",
+        "address": "墨田区墨田2丁目　中古戸建",
+        "access": "【駅徒歩9分の好立地・南向きバルコニ有・車庫完備】",
+        "details": {
+          "専有面積": "55.55m2",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2007年7月"
+        },
+        "area": "55.55m2",
+        "layout": "2LDK",
+        "age": "2007年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "【東向島駅徒歩4分】北西角地×2024年築3LDK車庫付き・内装綺麗です♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78474520/",
+        "price": "6680万円",
+        "address": "墨田区東向島4丁目・中古戸建",
+        "access": "【東向島駅徒歩4分】北西角地×2024年築3LDK車庫付き・内装綺麗です♪",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "41.62m2（12.58坪）",
+          "間取り": "3LDK",
+          "築年月": "2024年8月"
+        },
+        "area": "41.62m2（12.58坪）",
+        "layout": "3LDK",
+        "age": "2024年8月",
+        "rooms": []
+      },
+      {
+        "building_name": "東京スカイツリーを望む、内外装リノベーション済の古民家風戸建てです。",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78573107/",
+        "price": "6980万円",
+        "address": "東京都墨田区東向島２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "40.95m2（登記）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "1979年12月"
+        },
+        "area": "40.95m2（登記）",
+        "layout": "2LDK",
+        "age": "1979年12月",
+        "rooms": []
+      },
+      {
+        "building_name": "・カースペースあり（車種による）・2024年2月築",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77591075/",
+        "price": "7990万円",
+        "address": "墨田区東向島１丁目中古戸建",
+        "access": "N/A",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "53.15m2（登記）",
+          "間取り": "3LDK",
+          "築年月": "2024年2月"
+        },
+        "area": "53.15m2（登記）",
+        "layout": "3LDK",
+        "age": "2024年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "錦糸町駅　徒歩9分ルーフバルコニー付き4階建て",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78594504/",
+        "price": "N/A",
+        "address": "墨田区太平2丁目　中古戸建",
+        "access": "錦糸町駅　徒歩9分ルーフバルコニー付き4階建て",
+        "details": {
+          "専有面積": "37.78m2",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "1977年6月"
+        },
+        "area": "37.78m2",
+        "layout": "4LDK",
+        "age": "1977年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "◆物件詳細はアドキャスト錦糸町支店迄◆※オンラインで見学、ご相談も可能です",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78550327/",
+        "price": "N/A",
+        "address": "東京都墨田区太平２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "37.78m2（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "1977年6月"
+        },
+        "area": "37.78m2（登記）",
+        "layout": "4LDK",
+        "age": "1977年6月",
+        "rooms": []
+      },
+      {
+        "building_name": "〇●押上Selection●〇♪ADCAST 上野支店♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78350241/",
+        "price": "N/A",
+        "address": "東京都墨田区押上２",
+        "access": "N/A",
+        "details": {
+          "専有面積": "71.06m2",
+          "間取り": "5LDK",
+          "築年数": "築年月",
+          "築年月": "1993年3月"
+        },
+        "area": "71.06m2",
+        "layout": "5LDK",
+        "age": "1993年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "■令和4年築！■収納豊富♪■陽当たり良好！■二ヶ所バルコニー付き♪",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77725035/",
+        "price": "3490万円",
+        "address": "東京都墨田区立花６",
+        "access": "N/A",
+        "details": {
+          "築年数": "暮らしに役立つ設備の充実した、令和4年3月築の物件となります。75.32㎡の建物面積でゆったりと暮らすことができる物件です！ 無料の住宅ローン相談も承っておりますのでお気軽にお問い合わせください♪",
+          "専有面積": "53.05m2（16.04坪）（登記）",
+          "間取り": "3DK",
+          "築年月": "2022年3月"
+        },
+        "area": "53.05m2（16.04坪）（登記）",
+        "layout": "3DK",
+        "age": "暮らしに役立つ設備の充実した、令和4年3月築の物件となります。75.32㎡の建物面積でゆったりと暮らすことができる物件です！ 無料の住宅ローン相談も承っておりますのでお気軽にお問い合わせください♪",
+        "rooms": []
+      },
+      {
+        "building_name": "◇◆押上駅７分！６ｍ公道面の２階建・全居室収納付きで収納豊富◆◇",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77497215/",
+        "price": "4980万円",
+        "address": "東京都墨田区押上１",
+        "access": "N/A",
+        "details": {
+          "専有面積": "55.58m2（16.81坪）（登記）",
+          "間取り": "2LDK",
+          "築年数": "築年月",
+          "築年月": "2020年2月"
+        },
+        "area": "55.58m2（16.81坪）（登記）",
+        "layout": "2LDK",
+        "age": "2020年2月",
+        "rooms": []
+      },
+      {
+        "building_name": "◇東武伊勢崎線【鐘ヶ淵】駅まで徒歩8分の立地◇2007年7月築の一戸建",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78475139/",
+        "price": "5980万円",
+        "address": "東京都墨田区墨田２",
+        "access": "◇東武伊勢崎線【鐘ヶ淵】駅まで徒歩8分の立地◇2007年7月築の一戸建",
+        "details": {
+          "築年数": "築年月",
+          "専有面積": "55.54m2（登記）",
+          "間取り": "2LDK",
+          "築年月": "2007年7月"
+        },
+        "area": "55.54m2（登記）",
+        "layout": "2LDK",
+        "age": "2007年7月",
+        "rooms": []
+      },
+      {
+        "building_name": "パナソニックホームズ施工　屋上から隅田川花火大会を望む（天候による）",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_78625308/",
+        "price": "8280万円",
+        "address": "東京都墨田区吾妻橋１",
+        "access": "N/A",
+        "details": {
+          "専有面積": "52.56m2（実測）",
+          "間取り": "2DK",
+          "築年数": "築年月",
+          "築年月": "2015年3月"
+        },
+        "area": "52.56m2（実測）",
+        "layout": "2DK",
+        "age": "2015年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "システムキッチン、浴室乾燥機、陽当り良好、駅まで平坦、トイレ２ヶ所、温水洗",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_77540806/",
+        "price": "1億980万円",
+        "address": "東京都墨田区八広６-30-2",
+        "access": "N/A",
+        "details": {
+          "専有面積": "49.02m2（14.82坪）（登記）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2025年3月"
+        },
+        "area": "49.02m2（14.82坪）（登記）",
+        "layout": "4LDK",
+        "age": "2025年3月",
+        "rooms": []
+      },
+      {
+        "building_name": "◇◆本所吾妻橋駅４分の駅近な間口が広々とした整形地に建つ鉄骨造２階建◆◇",
+        "url": "https://suumo.jp/chukoikkodate/tokyo/sc_sumida/nc_75065053/",
+        "price": "1億6000万円",
+        "address": "東京都墨田区東駒形４",
+        "access": "N/A",
+        "details": {
+          "専有面積": "83.19m2（25.16坪）（実測）",
+          "間取り": "4LDK",
+          "築年数": "築年月",
+          "築年月": "2008年8月"
+        },
+        "area": "83.19m2（25.16坪）（実測）",
+        "layout": "4LDK",
+        "age": "2008年8月",
+        "rooms": []
+      }
+    ],
+    "timestamp": "2025-10-25T01:41:52.385227"
+  }
+}
